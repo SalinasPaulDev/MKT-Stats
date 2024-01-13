@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1040.88 964">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="361.11" y1="992.95" x2="1069.83" y2="284.23" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#40c4ff"/>
+      <stop offset="1" stop-color="#9c27b0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-31.74" y1="676.96" x2="676.96" y2="-31.74" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9c27b0"/>
+      <stop offset="1" stop-color="#40c4ff"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-2" d="M891.21,105.63l-155.4,155.4c52.6,51.15,85.39,122.57,85.39,201.74,0,155.49-126.05,281.54-281.54,281.54-79.17,0-150.59-32.79-201.74-85.39l-155.4,155.4c90.91,92.35,217.31,149.67,357.15,149.67,276.82,0,501.22-224.4,501.22-501.22,0-139.83-57.32-266.23-149.67-357.15Z"/>
+  <path class="cls-1" d="M219.68,501.22c0-155.49,126.05-281.54,281.54-281.54,76.32,0,145.44,30.48,196.15,79.8l155.4-155.4C762.3,55.01,638.2,0,501.22,0,224.4,0,0,224.4,0,501.22c0,136.98,55.01,261.08,144.07,351.55l155.4-155.4c-49.31-50.71-79.8-119.83-79.8-196.14Z"/>
+</svg>
