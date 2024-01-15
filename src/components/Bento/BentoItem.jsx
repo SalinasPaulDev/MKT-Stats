@@ -9,10 +9,8 @@ export const BentoItem = ({title, className, image}) => {
     backdrop-blur-md
     border border-blue/10
     shadow-inner shadow-black/10
-    col-span-5
-    w-full
-    h-full
     group
+
     `}
     
     >
@@ -20,7 +18,7 @@ export const BentoItem = ({title, className, image}) => {
         <div style={{backgroundImage: `url(${image})`}} className="left-0 top-0 bottom-0 absolute -z-20 bg-cover bg-center bg-no-repeat w-full h-full rounded-xl group-hover:scale-105 transition-scale duration-500 ease-in-out opacity-90 bg-blend-luminosity "/>
 
 
-        <div className="relative flex justify-between p-4 items-center">
+        <div className="relative flex flex-col gap-8 justify-between p-4 items-center md:flex-row">
 
         <h3 className="font-semibold text-white">{title}</h3>
 

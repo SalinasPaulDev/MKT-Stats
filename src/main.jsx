@@ -5,6 +5,7 @@ import './index.css'
 import { Home } from './sections/Home.jsx'
 import ErrorPage from './sections/error-page.jsx'
 import { Questions } from './sections/Questions.jsx'
+import { QuestionsItems } from './components/Questions/QuestionsItems.jsx'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,11 @@ const router = createBrowserRouter([
   {
     path: "/questions",
     element: <Questions />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "/questions/documentation",
+    element: <QuestionsItems />,
     errorElement: <ErrorPage />
   }
 ])
