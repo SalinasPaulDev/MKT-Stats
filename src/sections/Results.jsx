@@ -70,7 +70,7 @@ export const Results = () => {
   return (
     <div className="md:px-20">
         <div className="w-full flex flex-col justify-center items-center gap-8 md:flex-row md:gap-1">
-            <div className="w-2/3">
+            <div className="w-full md:w-2/3">
                 <ReactEcharts  className="mt-8 text-center m-auto" option={option}/>
             </div>
             <img src={Logo} width={200} className="opacity-60"/>
@@ -78,14 +78,14 @@ export const Results = () => {
         <h3 className="font-bold text-4xl text-center mt-12">Resultados</h3>
         
         <div className="flex flex-col justify-center items-center my-20 gap-12 ">
-            <div className="w-2/3">
+            <div className="md:w-2/3">
             <h4 className="text-2xl font-semibold">Aprobadas</h4>
             <ul className="my-4">
                 <li>✅ Propósito fundamental debidamente documentado (Por qué y para qué)</li>
                 <li>✅ Manifiesto de marca Valores y comportamientos observables</li>
             </ul>
             </div>
-            <div className="w-2/3">
+            <div className="md:w-2/3">
             <h4 className="text-2xl font-semibold">Desaprobadas</h4>
             <ul className="my-4">
                 <li>❌ Definición de audiencias objetivas (internas, externas, estratégicas, comerciales, etc.)</li>
