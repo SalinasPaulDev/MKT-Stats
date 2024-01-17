@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Header } from './Header'
+import { Loader } from '../components/Loader/Loader'
 export const Home = () => {
   return (
     <div className="w-full text-center">

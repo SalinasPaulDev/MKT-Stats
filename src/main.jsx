@@ -6,6 +6,7 @@ import { Home } from './sections/Home.jsx'
 import ErrorPage from './sections/error-page.jsx'
 import { Questions } from './sections/Questions.jsx'
 import { QuestionsItems } from './components/Questions/QuestionsItems.jsx'
+import { NextUIProvider } from '@nextui-org/react'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <NextUIProvider>
+      <RouterProvider router={router} fallbackElement={<p>Loading...</p>}/>
+    </NextUIProvider>
   </React.StrictMode>,
 )

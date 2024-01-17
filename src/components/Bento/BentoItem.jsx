@@ -1,7 +1,13 @@
+import { CircularProgress } from "@nextui-org/react"
 import { Link } from "react-router-dom"
+import { getPercentage } from "../../utils"
 
 
-export const BentoItem = ({title, className, image}) => {
+export const BentoItem = ({title, className, image, percentege}) => {
+
+
+  console.log(percentege)
+  
   return (
     <div className={`
     ${className}
@@ -18,15 +24,19 @@ export const BentoItem = ({title, className, image}) => {
         <div style={{backgroundImage: `url(${image})`}} className="left-0 top-0 bottom-0 absolute -z-20 bg-cover bg-center bg-no-repeat w-full h-full rounded-xl group-hover:scale-105 transition-scale duration-500 ease-in-out opacity-90 bg-blend-luminosity "/>
 
 
-        <div className="relative flex flex-col gap-8 justify-between p-4 items-center md:flex-row">
+        <div className="relative flex flex-col gap-4 justify-between p-4 items-center md:flex-row">
 
         <h3 className="font-semibold text-white">{title}</h3>
+
+        <CircularProgress value={percentege ? percentege : 0} showValueLabel color={percentege === 100 ? "success" : "warning"} className="text-white md:hidden" size="lg" />
 
         <Link to={'/questions/documentation'}>
             <button className="bg-blue-500/80 px-4 py-1 rounded-2xl text-white right-0 hover:bg-white hover:text-blue-500 transition duration-500">Continuar</button>
         </Link>
-        </div>
-
+        </div>     
+        <div className="flex items-center justify-center mt-2 max-md:hidden">
+        <CircularProgress value={percentege ? percentege : 0} showValueLabel color={percentege === 100 ? "success" : "warning"} className="text-white" size="lg" />
+        </div>    
     </div>
   )
 }

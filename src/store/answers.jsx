@@ -1,7 +1,9 @@
 import { create } from 'zustand'
 
-export const useAnswersStore = create((set) => ({
-    firstAnswer: '',
-    secondAnswer: '',
-    updateValues: ({firstAnswer, secondAnswer}) => set(() => ({firstAnswer, secondAnswer}))
+export const useDocumentationAnswersStore = create((set) => ({
+    documentedAnswer: '',
+    manifestAnswer: '',
+    audienceAnswer: '',
+    portfolioAnswer: '',
+    updateValues: (key, answer) => set(() => ({[key]: answer}))
 }))
