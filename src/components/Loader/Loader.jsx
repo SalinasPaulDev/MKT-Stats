@@ -7,3 +7,15 @@ export const Loader = () => {
     </div>
   )
 }
+
+import React from 'react'
+
+const Zaraza = () => {
+  return (
+    <div>Zaraza</div>
+  )
+}
+
+export default Zaraza
+
+
