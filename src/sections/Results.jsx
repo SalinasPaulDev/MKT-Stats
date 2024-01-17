@@ -1,5 +1,6 @@
 import ReactEcharts from "echarts-for-react"; 
 import { useEffect, useRef } from "react";
+import Logo from '/LogoEmpresa.svg'
 
 
 
@@ -42,10 +43,10 @@ const option = {
         position: 'center',
       },
       data: [
-        { value: 30, name: 'document.' },
+        { value: 30, name: 'Document.' },
         { value: 28, name: 'Estrategia' },
-        { value: 26, name: 'equipo' },
-        { value: 24, name: 'Brand' }
+        { value: 26, name: 'Equipo' },
+        { value: 24, name: 'Identidad' }
       ]
     }
   ]
@@ -59,7 +60,6 @@ export const Results = () => {
             option.series[0].radius[1] = 60
             option.series[0].center[1] = '50%'
         }
-        console.log(option)
     }
 
     useEffect(() => {
@@ -68,6 +68,31 @@ export const Results = () => {
 
 
   return (
-    <ReactEcharts  className="mt-8 text-center m-auto" option={option}/>
+    <div className="px-20">
+        <div className="w-full flex flex-col justify-center items-center gap-8 md:flex-row md:gap-1">
+            <div className="w-2/3">
+                <ReactEcharts  className="mt-8 text-center m-auto" option={option}/>
+            </div>
+            <img src={Logo} width={200} className="opacity-60"/>
+        </div>
+        <h3 className="font-bold text-4xl text-center mt-12">Resultados</h3>
+        
+        <div className="flex flex-col justify-center items-center my-20 gap-12 ">
+            <div className="w-2/3">
+            <h4 className="text-2xl font-semibold">Aprobadas</h4>
+            <ul className="my-4">
+                <li>✅ Propósito fundamental debidamente documentado (Por qué y para qué)</li>
+                <li>✅ Manifiesto de marca Valores y comportamientos observables</li>
+            </ul>
+            </div>
+            <div className="w-2/3">
+            <h4 className="text-2xl font-semibold">Desaprobadas</h4>
+            <ul className="my-4">
+                <li>❌ Definición de audiencias objetivas (internas, externas, estratégicas, comerciales, etc.)</li>
+                <li>❌ Definición y documentación de portafolio (productos y/o servicios)</li>
+            </ul>
+            </div>
+        </div>
+    </div>
   )
 }

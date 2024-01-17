@@ -20,7 +20,7 @@ export default function Home () {
                 </button>
             </Link>
 
-            <img src={Logo} alt='id creativa logo' className='w-[200px] m-auto mt-12 opacity-20'/>
+            <img src={Logo} alt='id creativa logo' className='w-[200px] m-auto my-12 opacity-20'/>
         </div>
         
     </>
