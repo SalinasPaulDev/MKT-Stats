@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import Logo from '/logo.svg'
 import { useDocumentationAnswersStore } from '../../store/answers'
-import { useState } from 'react'
 const questions = [
     {
         question: 'Propósito fundamental debidamente documentado (Por qué y para qué)',
@@ -32,9 +31,6 @@ const OPTIONS = {
 }
 
 export const QuestionsItems = () => {
-
-    const [isChecked, setIsChecked] = useState(OPTIONS.EMPTY)
-
 
     const {updateValues, ...storeQuestions} = useDocumentationAnswersStore((state) => state)
 

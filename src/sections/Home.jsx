@@ -1,6 +1,5 @@
-import { Link, Outlet } from 'react-router-dom'
-import { Header } from './Header'
-import { Loader } from '../components/Loader/Loader'
+import { Link} from 'react-router-dom'
+
 import Logo from '/LogoEmpresa.svg'
 export default function Home () {
   return (

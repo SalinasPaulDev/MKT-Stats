@@ -6,11 +6,6 @@ import Logo from '/LogoEmpresa.svg'
 
 
 const option = {
-  title: {
-    text: '',
-    subtext: '',
-    left: ''
-  },
   tooltip: {
     trigger: 'item',
     formatter: '{b} : {c} ({d}%)'
@@ -53,10 +48,10 @@ const option = {
 };
 
 export const Results = () => {
-    const windowSize = useRef([window.innerWidth, window.innerHeight]);
+    const windowSize = useRef(window.innerWidth);
 
     const handleSeriesSize = () => {
-        if(windowSize.current[0] < 400 ) {
+        if(windowSize.current < 400 ) {
             option.series[0].radius[1] = 60
             option.series[0].center[1] = '50%'
         }
