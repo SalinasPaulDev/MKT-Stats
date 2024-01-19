@@ -1,6 +1,5 @@
 import { Link, ScrollRestoration } from "react-router-dom"
 import { Bento } from "../components/Bento/Bento"
-import { Header } from "./Header"
 
 
 export const Questions = () => {

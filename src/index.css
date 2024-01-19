@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 :root {
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -38,15 +39,6 @@ body {
 h1 {
   font-size: 44px;
   line-height: 1.1;
-}
-
-.loader {
-  animation: spin 4s linear infinite;
-}
-
-@keyframes spin {
-  0% {transform: rotate(0deg);}
-  100% {transform: rotate(360deg);}
 }
 
 
