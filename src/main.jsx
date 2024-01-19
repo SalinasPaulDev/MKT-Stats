@@ -4,11 +4,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import Home from './sections/Home.jsx'
 import ErrorPage from './sections/error-page.jsx'
-import { Questions } from './sections/Questions.jsx'
 import { QuestionsItems } from './components/Questions/QuestionsItems.jsx'
 import { NextUIProvider } from '@nextui-org/react'
 import {Header} from './sections/Header.jsx'
 import { Results } from './sections/Results.jsx'
+import { Questions } from './sections/questions.jsx'
 
 const router = createBrowserRouter([
   {
@@ -37,8 +37,15 @@ const router = createBrowserRouter([
     path: "/questions/documentation",
     element: <QuestionsItems />,
     errorElement: <ErrorPage />
+  },
+  {
+    path: "/questions/strategy",
+    element: <QuestionsItems />,
+    errorElement: <ErrorPage />
   }
 ])
+
+//! TODO: fix enrutado para las preguntas, deberia quedar todo en un solo componente que decide cual pregunta muestra 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

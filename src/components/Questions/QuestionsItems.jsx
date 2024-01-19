@@ -1,29 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import Logo from '/logo.svg'
 import { useDocumentationAnswersStore } from '../../store/answers'
-import { useState } from 'react'
-const questions = [
-    {
-        question: 'Propósito fundamental debidamente documentado (Por qué y para qué)',
-        answer: 'No',
-        key: 'documentedAnswer'
-    },
-    {
-        question: 'Manifiesto de marca Valores y comportamientos observables',
-        answer: 'No',
-        key: 'manifestAnswer'
-    },
-    {
-        question: 'Definición de audiencias objetivas (internas, externas, estratégicas, comerciales, etc.)',
-        answer: 'No',
-        key: 'audienceAnswer'
-    },
-    {
-        question: 'Definición y documentación de portafolio (productos y/o servicios)',
-        answer: 'No',
-        key:'portfolioAnswer'
-    },
-]
+import { useEffect, useState } from 'react'
+import { documentQuestions, strategyQuestions } from '../../utils/questions'
+
 
 const OPTIONS = {
     YES : 'yes',
@@ -32,16 +12,27 @@ const OPTIONS = {
 }
 
 export const QuestionsItems = () => {
-
-    const [isChecked, setIsChecked] = useState(OPTIONS.EMPTY)
-
+    const [currentQuestion, setCurrentQuestion] = useState([])
+    const location = useLocation()
 
     const {updateValues, ...storeQuestions} = useDocumentationAnswersStore((state) => state)
+    const currentLocation = location.pathname
+
+    const showQuestionsByCategory = () => {
+        if(currentLocation === '/questions/documentation') {
+            setCurrentQuestion(documentQuestions)
+        }else if (currentLocation === '/questions/strategy') {
+            setCurrentQuestion(strategyQuestions)
+        }
+    }
+
+    useEffect(() => {
+        showQuestionsByCategory()
+    }, [location.pathname])
+
 
     const isCheckedv2 =  (key) => {
         let questionFound = Object.keys(storeQuestions).find(x => x === key)
-
-         console.log({za:storeQuestions[questionFound], questionFound})
 
          if(storeQuestions[questionFound] === 'yes') {
             return OPTIONS.YES
@@ -67,7 +58,7 @@ export const QuestionsItems = () => {
         <div className='flex flex-col gap-4 justify-center item-center lg:w-fit m-auto'>
 
         {
-            questions.map((question, index) => (
+            currentQuestion.map((question, index) => (
                 <div key={question.question} className='border-blue-500 min-h-14 bg-indigo-600/5 max-w-[800px] rounded-xl p-4 lg:min-w-max'>
                     <p>{`${index + 1} - ${question.question}`}</p>
                     <div className='inline-flex items-center gap-4 mt-4 ml-4'>

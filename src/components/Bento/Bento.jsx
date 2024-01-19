@@ -1,8 +1,8 @@
 import { BentoItem } from "./BentoItem"
-import IdentityImage from '/identidad.jpg'
-import DocumentationImage from '/documentacion.jpg'
-import TeamImage from '/equipo.jpg'
-import StrategyImage from '/estrategia.jpg'
+import IdentityImage from '/identidad.webp'
+import DocumentationImage from '/documentacion.webp'
+import TeamImage from '/equipo.webp'
+import StrategyImage from '/estrategia.webp'
 import { useDocumentationAnswersStore } from "../../store/answers"
 import { getPercentage } from "../../utils"
 
