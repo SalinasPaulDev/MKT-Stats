@@ -8,7 +8,7 @@ import { QuestionsItems } from './components/Questions/QuestionsItems.jsx'
 import { NextUIProvider } from '@nextui-org/react'
 import {Header} from './sections/Header.jsx'
 import { Results } from './sections/Results.jsx'
-import { Questions } from './sections/questions.jsx'
+import { Questions } from './sections/tuvieja.jsx'
 
 const router = createBrowserRouter([
   {
