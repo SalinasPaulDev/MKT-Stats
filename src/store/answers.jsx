@@ -7,3 +7,14 @@ export const useDocumentationAnswersStore = create((set) => ({
     portfolioAnswer: '',
     updateValues: (key, answer) => set(() => ({[key]: answer}))
 }))
+
+export const useStrategyAnswersStore = create((set) => ({
+    architectureBrand: '',
+    proposalValue: '',
+    marketingStrategy: '',
+    comunicationPlan: '',
+    positioningStrategy: '',
+    performanceStrategy: '',
+    desiredPositioning: '',
+    updateValues: (key, answer) => set(() => ({[key]: answer}))
+}))

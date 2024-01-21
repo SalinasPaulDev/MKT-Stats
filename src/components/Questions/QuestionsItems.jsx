@@ -1,8 +1,9 @@
 import { Link, useLocation, useParams } from 'react-router-dom'
 import Logo from '/logo.svg'
-import { useDocumentationAnswersStore } from '../../store/answers'
+import { useDocumentationAnswersStore, useStrategyAnswersStore } from '../../store/answers'
 import { useEffect, useState } from 'react'
 import { documentQuestions, strategyQuestions } from '../../utils/questions'
+import { Button } from '../Button/Button'
 
 
 const OPTIONS = {
@@ -15,7 +16,9 @@ export const QuestionsItems = () => {
     const [currentQuestion, setCurrentQuestion] = useState([])
     const location = useLocation()
 
-    const {updateValues, ...storeQuestions} = useDocumentationAnswersStore((state) => state)
+    const {updateValues: updateDocumentationValues, ...storeQuestions} = useDocumentationAnswersStore((state) => state)
+    const {updateValues : updateStrategyValues, ...strategyAnswers} = useStrategyAnswersStore((state) => state)
+
     const currentLocation = location.pathname
 
     const showQuestionsByCategory = () => {
@@ -26,23 +29,48 @@ export const QuestionsItems = () => {
         }
     }
 
+    const handleUpdateValues = (key, value) => {
+        if(currentLocation === '/questions/documentation') {
+            updateDocumentationValues(key, value)
+        }else if (currentLocation === '/questions/strategy') {
+            updateStrategyValues(key,value)
+        }
+    }
+
     useEffect(() => {
         showQuestionsByCategory()
+        console.log({strategyAnswers})
     }, [location.pathname])
 
 
     const isCheckedv2 =  (key) => {
-        let questionFound = Object.keys(storeQuestions).find(x => x === key)
+        let questionFound
 
-         if(storeQuestions[questionFound] === 'yes') {
-            return OPTIONS.YES
-         }
-         if(storeQuestions[questionFound] === 'no') {
-            
-            return OPTIONS.NO
-         }else {
-            return OPTIONS.EMPTY
-         }
+        if(currentLocation === '/questions/documentation'){
+            questionFound = Object.keys(storeQuestions).find(x => x === key)
+            if(storeQuestions[questionFound] === 'yes') {
+                return OPTIONS.YES
+             }
+             if(storeQuestions[questionFound] === 'no') {
+                
+                return OPTIONS.NO
+             }else {
+                return OPTIONS.EMPTY
+             }
+        }else if (currentLocation === '/questions/strategy') {
+            questionFound = Object.keys(strategyAnswers).find(x => x === key)
+            if(strategyAnswers[questionFound] === 'yes') {
+                return OPTIONS.YES
+             }
+             if(strategyAnswers[questionFound] === 'no') {
+                
+                return OPTIONS.NO
+             }else {
+                return OPTIONS.EMPTY
+             }
+        }
+
+
          
     }
 
@@ -50,12 +78,14 @@ export const QuestionsItems = () => {
 
 
   return (
-    <div className='p-8 md:p-16 lg:w-full' >
-        <img src={Logo} className='w-20 text-center m-auto my-20'/>
+    <div  className='lg:w-full ' >
+        <div style={{backgroundImage: 'url("/wave.svg")'}}  className='bg-no-repeat bg-center bg-cover relative top-0 left-0 right-0 py-28 bg-opacity-10'>
+            <img src={Logo} className='w-20 text-center m-auto mb-16'/>
 
-        <h3 className='font-semibold text-2xl mb-4 text-center'>Resuelve las preguntas: </h3>
+            <h3 className='font-semibold text-2xl  mb-4 text-center text-white pb-8'>Resuelve las preguntas: </h3>
+        </div>
 
-        <div className='flex flex-col gap-4 justify-center item-center lg:w-fit m-auto'>
+        <div className='flex flex-col gap-4 justify-center item-center lg:w-fit m-auto p-8 md:p-16'>
 
         {
             currentQuestion.map((question, index) => (
@@ -64,12 +94,12 @@ export const QuestionsItems = () => {
                     <div className='inline-flex items-center gap-4 mt-4 ml-4'>
                         <label className='flex items-center gap-2'>
                             <p>Si</p>
-                            <input type='radio' value={'yes'} name={question.question} onChange={({target}) =>  updateValues(question.key,target.value)} checked={isCheckedv2(question.key) === OPTIONS.YES ? true : false}/>
+                            <input type='radio' value={'yes'} name={question.question} onChange={({target}) =>  handleUpdateValues(question.key,target.value)} checked={isCheckedv2(question.key) === OPTIONS.YES ? true : false}/>
                         </label>
 
                         <label className='flex items-center gap-2'>
                             <p>No</p>
-                            <input type='radio' value={'no'} name={question.question} onChange={({target}) =>  updateValues(question.key,target.value)}  checked={isCheckedv2(question.key) === OPTIONS.NO ? true : false}/>
+                            <input type='radio' value={'no'} name={question.question} onChange={({target}) =>  handleUpdateValues(question.key,target.value)}  checked={isCheckedv2(question.key) === OPTIONS.NO ? true : false}/>
                         </label>
                     </div>
                 </div>
@@ -77,9 +107,9 @@ export const QuestionsItems = () => {
         }
         </div>
 
-        <Link to={'/questions'} className='flex justify-center'>
-            <button className='px-6 py-4 bg-indigo-600 text-xl font-semibold  my-10 rounded-3xl text-white md:text-xl hover:bg-indigo-600/90 transition duration-300'>Continuar</button>
-        </Link>
+        <div className='flex justify-center'>
+            <Button link={'/questions'} text={'Continuar'}/>
+        </div>
     </div>
   )
 }

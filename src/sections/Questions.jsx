@@ -1,5 +1,6 @@
 import { Link, ScrollRestoration } from "react-router-dom"
 import { Bento } from "../components/Bento/Bento"
+import { Footer } from "../components/Footer/Footer"
 
 
 export const Questions = () => {
@@ -15,6 +16,8 @@ export const Questions = () => {
       </Link>
 
       <ScrollRestoration />
+
+      <Footer />
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { getPercentage } from "../../utils"
 
 
-export const BentoItem = ({title, className, image, percentege}) => {
+export const BentoItem = ({title, className, image, percentege, path}) => {
 
 
   console.log(percentege)
@@ -30,8 +30,8 @@ export const BentoItem = ({title, className, image, percentege}) => {
 
         <CircularProgress value={percentege ? percentege : 0} showValueLabel color={percentege === 100 ? "success" : "warning"} className="text-white md:hidden" size="lg" />
 
-        <Link to={'/questions/documentation'}>
-            <button className="bg-blue-500/80 px-4 py-1 rounded-2xl text-white right-0 hover:bg-white hover:text-blue-500 transition duration-500">Continuar</button>
+        <Link to={`/questions/${path}`}>
+            <button className="bg-indigo-500/80 px-4 py-1 rounded-2xl text-white right-0 hover:bg-indigo-500/90 hover:text-white transition duration-500">Continuar</button>
         </Link>
         </div>     
         <div className="flex items-center justify-center mt-2 max-md:hidden">
