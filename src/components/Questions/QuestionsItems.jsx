@@ -4,9 +4,10 @@ import { useDocumentationAnswersStore, useStrategyAnswersStore } from '../../sto
 import { useEffect, useState } from 'react'
 import { documentQuestions, strategyQuestions } from '../../utils/questions'
 import { Button } from '../Button/Button'
+import { getApproveQuestions } from '../../utils'
 
 
-const OPTIONS = {
+export const OPTIONS = {
     YES : 'yes',
     NO: 'no',
     EMPTY: ''
@@ -39,7 +40,6 @@ export const QuestionsItems = () => {
 
     useEffect(() => {
         showQuestionsByCategory()
-        console.log({strategyAnswers})
     }, [location.pathname])
 
 

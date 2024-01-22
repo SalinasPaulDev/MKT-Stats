@@ -1,6 +1,8 @@
 import ReactEcharts from "echarts-for-react"; 
 import { useEffect, useRef } from "react";
 import Logo from '/LogoEmpresa.svg'
+import { useDocumentationAnswersStore, useStrategyAnswersStore } from "../store/answers";
+import { getApproveQuestions, getPercentage, getPercentageToAnswers } from "../utils";
 
 
 
@@ -38,10 +40,10 @@ const option = {
         position: 'center',
       },
       data: [
-        { value: 30, name: 'Document.' },
-        { value: 28, name: 'Estrategia' },
-        { value: 26, name: 'Equipo' },
-        { value: 24, name: 'Identidad' }
+        { value: 0, name: 'Document.' },
+        { value: 0, name: 'Estrategia' },
+        { value: 60, name: 'Equipo' },
+        { value: 60, name: 'Identidad' }
       ]
     }
   ]
@@ -49,6 +51,8 @@ const option = {
 
 export const Results = () => {
     const windowSize = useRef(window.innerWidth);
+    const {updateValues: updateDocumentsValues, ...documentAnswers} = useDocumentationAnswersStore((state) => state)
+    const {updateValues: updateStrategyValues, ...strategyAnswers} = useStrategyAnswersStore((state) => state)
 
     const handleSeriesSize = () => {
         if(windowSize.current < 400 ) {
@@ -57,10 +61,25 @@ export const Results = () => {
         }
     }
 
+    const addPercentageByCategory = () => {
+      option.series[0].data.map(x => {
+        if(x.name === 'Document.'){
+          x.value = getPercentageToAnswers(documentAnswers)
+        }
+        if(x.name === 'Estrategia'){
+          x.value = getPercentageToAnswers(strategyAnswers)
+        }
+      })
+
+    }
+
     useEffect(() => {
         handleSeriesSize()
+        addPercentageByCategory()
     }, [])
 
+    
+    console.log(getApproveQuestions(documentAnswers, 'approve'))
 
   return (
     <div className="px-4 md:px-20">
@@ -76,15 +95,23 @@ export const Results = () => {
             <div className="md:w-2/3">
             <h4 className="text-2xl font-semibold">Aprobadas</h4>
             <ul className="my-4">
-                <li>✅ Propósito fundamental debidamente documentado (Por qué y para qué)</li>
-                <li>✅ Manifiesto de marca Valores y comportamientos observables</li>
+              {
+                getApproveQuestions(documentAnswers, 'approve').map((x) => (
+                  <li>✅ {x.question}</li>
+                ))
+              }
+
             </ul>
             </div>
             <div className="md:w-2/3">
             <h4 className="text-2xl font-semibold">Desaprobadas</h4>
             <ul className="my-4">
-                <li>❌ Definición de audiencias objetivas (internas, externas, estratégicas, comerciales, etc.)</li>
-                <li>❌ Definición y documentación de portafolio (productos y/o servicios)</li>
+            {
+                getApproveQuestions(documentAnswers, 'decline').map((x) => (
+                  <li>❌ {x.question}</li>
+                ))
+              }
+
             </ul>
             </div>
         </div>
