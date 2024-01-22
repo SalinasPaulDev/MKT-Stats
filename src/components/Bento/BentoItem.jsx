@@ -31,7 +31,7 @@ export const BentoItem = ({title, className, image, percentege, path}) => {
         <CircularProgress value={percentege ? percentege : 0} showValueLabel color={percentege === 100 ? "success" : "warning"} className="text-white md:hidden" size="lg" />
 
         <Link to={`/questions/${path}`}>
-            <button className="bg-indigo-500/80 px-4 py-1 rounded-2xl text-white right-0 hover:bg-indigo-500/90 hover:text-white transition duration-500">Continuar</button>
+            <button className="bg-blue-500/80 px-4 py-1 rounded-2xl text-white right-0 hover:bg-blue-500/90 hover:text-white transition duration-500">Continuar</button>
         </Link>
         </div>     
         <div className="flex items-center justify-center mt-2 max-md:hidden">
