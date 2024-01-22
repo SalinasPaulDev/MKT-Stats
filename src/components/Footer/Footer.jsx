@@ -12,7 +12,7 @@ export const Footer = () => {
         <img src={QR_code} className='w-[160px] h-[160px] mt-16 max-md:hidden'/>
         
       </div>
-      <div className='text-center text-slate-700'>
+      <div className='text-center text-slate-700 max-md:mt-12 max-md:text-sm'>
         <p>Creacion de <a href='' id='link'>Brian Paul Salinas</a> by <a id='link' href='https://idcreativa.com/' target='_blank'>ID Creaiva</a></p>
       </div>
     </div>
