@@ -63,7 +63,7 @@ export const Results = () => {
 
 
   return (
-    <div className="md:px-20">
+    <div className="px-4 md:px-20">
         <div className="w-full flex flex-col justify-center items-center gap-8 md:flex-row md:gap-1">
             <div className="w-full md:w-2/3">
                 <ReactEcharts  className="mt-8 text-center m-auto" option={option}/>

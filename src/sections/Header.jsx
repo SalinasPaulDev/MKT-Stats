@@ -1,10 +1,12 @@
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 import Logo from '/logo.svg'
+import { Footer } from '../components/Footer/Footer'
 
 
 export const Header = () => {
+  const location = useLocation()
   return (
-    <div className=''>
+    <div className={`relative ${location.pathname !== '/' ? 'pb-[400px]': '' }`}>
     <Link to={'/'}>
     <div className="w-full  flex items-center justify-center bg-center bg-no-repeat bg-cover py-8"  style={{backgroundImage: 'url("/header_wave.svg")'}}>
       <div className='w-10'>
@@ -16,6 +18,7 @@ export const Header = () => {
     <div>
       <Outlet />
     </div>
+    <Footer />
 </div>
   )
 }
