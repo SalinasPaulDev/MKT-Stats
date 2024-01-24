@@ -1,5 +1,5 @@
 import { OPTIONS } from "./components/Questions/QuestionsItems"
-import { documentQuestions } from "./utils/questions"
+import { documentQuestions, strategyQuestions } from "./utils/questions"
 
 export const getPercentage = (total) => {
 
@@ -23,12 +23,41 @@ export const getPercentageToAnswers = (total) => {
     return(Math.round(respuesta))
 }
 
-export const getApproveQuestions = (answers, find) => {
+export const getApproveQuestions = (answers = [], find) => {
+    let approveQuestions = []
+    let declineQuestions = []
+
+    console.log("Dentro de la funcion ", answers)
+
+    // let allQuestions = answers.map(x => {
+    //     const filteredAnswers = Object.entries(x)
+    //     const approveKeysQuestion = filteredAnswers.filter(x => x[1] === OPTIONS.YES).map(x => x[0])
+    //     const negativeKeysQuestion = filteredAnswers.filter(x => x[1] === OPTIONS.NO).map(x => x[0])
+
+    //     if(approveKeysQuestion.length) {
+    //         documentQuestions.forEach(x => {
+    //             approveKeysQuestion.forEach(z => z === x.key && approveQuestions.push(x))
+    //         })
+    //         strategyQuestions.forEach(x => {
+    //             approveKeysQuestion.forEach(z => z === x.key && approveQuestions.push(x))
+    //         })
+    //     }
+
+    //     if(negativeKeysQuestion.length){
+    //         documentQuestions.forEach(x => {
+    //             negativeKeysQuestion.forEach(z => z === x.key && declineQuestions.push(x))
+    //         })
+
+    //         strategyQuestions.forEach(x => {
+    //             negativeKeysQuestion.forEach(z => z === x.key && declineQuestions.push(x))
+    //         })
+    //     }
+
+    // })
     const filteredAnswers = Object.entries(answers)
     const approveKeysQuestion = filteredAnswers.filter(x => x[1] === OPTIONS.YES).map(x => x[0])
     const negativeKeysQuestion = filteredAnswers.filter(x => x[1] === OPTIONS.NO).map(x => x[0])
-    let approveQuestions = []
-    let declineQuestions = []
+
 
     if(approveKeysQuestion.length) {
         documentQuestions.forEach(x => {
@@ -37,10 +66,12 @@ export const getApproveQuestions = (answers, find) => {
     }
 
     if(negativeKeysQuestion.length){
-        documentQuestions.forEach(x => {
-            negativeKeysQuestion.forEach(z => z === x.key && declineQuestions.push(x))
-        })
-    }
+    documentQuestions.forEach(x => {
+        negativeKeysQuestion.forEach(z => z === x.key && declineQuestions.push(x))
+    })
+}
+
+
 
     
     if(find === 'approve'){

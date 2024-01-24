@@ -3,6 +3,9 @@ import { useEffect, useRef } from "react";
 import Logo from '/LogoEmpresa.svg'
 import { useDocumentationAnswersStore, useStrategyAnswersStore } from "../store/answers";
 import { getApproveQuestions, getPercentage, getPercentageToAnswers } from "../utils";
+import {useNavigate} from 'react-router-dom'
+import {Accordion, AccordionItem} from "@nextui-org/react";
+import { SuggestionCard } from "../components/Card/Cards";
 
 
 
@@ -40,8 +43,8 @@ const option = {
         position: 'center',
       },
       data: [
-        { value: 0, name: 'Document.' },
-        { value: 0, name: 'Estrategia' },
+        { value: 20, name: 'Document.'},
+        { value: 20, name: 'Estrategia' },
         { value: 60, name: 'Equipo' },
         { value: 60, name: 'Identidad' }
       ]
@@ -53,6 +56,7 @@ export const Results = () => {
     const windowSize = useRef(window.innerWidth);
     const {updateValues: updateDocumentsValues, ...documentAnswers} = useDocumentationAnswersStore((state) => state)
     const {updateValues: updateStrategyValues, ...strategyAnswers} = useStrategyAnswersStore((state) => state)
+    const navigate = useNavigate()
 
     const handleSeriesSize = () => {
         if(windowSize.current < 400 ) {
@@ -73,10 +77,21 @@ export const Results = () => {
 
     }
 
+    const checkAnswersExist =  () => {
+      if(!getApproveQuestions(documentAnswers, 'approve').length || !getApproveQuestions(documentAnswers, 'decline').length) {
+        navigate("/questions")
+      }
+    }
+
     useEffect(() => {
         handleSeriesSize()
-        addPercentageByCategory()
+
     }, [])
+
+    useEffect(() => {
+      addPercentageByCategory()
+      checkAnswersExist()
+    }, [documentAnswers, strategyAnswers ])
 
     
     console.log(getApproveQuestions(documentAnswers, 'approve'))
@@ -93,26 +108,28 @@ export const Results = () => {
         
         <div className="flex flex-col justify-center items-center my-20 gap-12 ">
             <div className="md:w-2/3">
-            <h4 className="text-2xl font-semibold">Aprobadas</h4>
-            <ul className="my-4">
-              {
-                getApproveQuestions(documentAnswers, 'approve').map((x) => (
-                  <li>✅ {x.question}</li>
-                ))
-              }
+              <h4 className="text-2xl font-semibold px-2">Aprobadas</h4>
+              <Accordion className="my-4">
+                {
+                  getApproveQuestions(documentAnswers, 'approve').map((x) => (
+                    <AccordionItem key={x.key} aria-label="Accordion 1" title={`✅ ${x.question}`} hideIndicator> {x.question}</AccordionItem>
+                  ))
+                }
 
-            </ul>
+              </Accordion>
             </div>
             <div className="md:w-2/3">
-            <h4 className="text-2xl font-semibold">Desaprobadas</h4>
-            <ul className="my-4">
-            {
-                getApproveQuestions(documentAnswers, 'decline').map((x) => (
-                  <li>❌ {x.question}</li>
-                ))
-              }
+              <h4 className="text-2xl font-semibold px-2">Desaprobadas</h4>
+              <Accordion className="my-4">
+              {
+                  getApproveQuestions(documentAnswers, 'decline').map((x) => (
+                    <AccordionItem key={x.key} aria-label="Accordion 1" title={`❌ ${x.question}`}> 
+                      <SuggestionCard suggestion={x.suggestion}/>
+                    </AccordionItem>
+                  ))
+                }
 
-            </ul>
+              </Accordion>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import { Link, Outlet, ScrollRestoration, useLocation } from 'react-router-dom'
 import Logo from '/logo.svg'
 import { Footer } from '../components/Footer/Footer'
 
@@ -19,6 +19,7 @@ export const Header = () => {
       <Outlet />
     </div>
     <Footer />
+    <ScrollRestoration />
 </div>
   )
 }

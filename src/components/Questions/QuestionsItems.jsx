@@ -1,4 +1,4 @@
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, ScrollRestoration, useLocation, useParams } from 'react-router-dom'
 import Logo from '/logo.svg'
 import { useDocumentationAnswersStore, useStrategyAnswersStore } from '../../store/answers'
 import { useEffect, useState } from 'react'
@@ -107,9 +107,10 @@ export const QuestionsItems = () => {
         }
         </div>
 
-        <div className='flex justify-center'>
+        <div className='flex justify-center mb-20'>
             <Button link={'/questions'} text={'Continuar'}/>
         </div>
+        <ScrollRestoration />
     </div>
   )
 }
