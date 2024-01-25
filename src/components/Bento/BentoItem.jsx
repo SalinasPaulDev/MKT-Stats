@@ -5,8 +5,6 @@ import { getPercentage } from "../../utils"
 
 export const BentoItem = ({title, className, image, percentege, path}) => {
 
-
-  console.log(percentege)
   
   return (
     <div className={`

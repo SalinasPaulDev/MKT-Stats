@@ -27,8 +27,10 @@ export const getApproveQuestions = (answers, find) => {
     let approveQuestions = []
     let declineQuestions = []
 
-    let allQuestions = answers.map(x => {
-        const filteredAnswers = Object.entries(x)
+
+
+    answers.forEach(answer => {
+        const filteredAnswers = Object.entries(answer)
         const approveKeysQuestion = filteredAnswers.filter(x => x[1] === OPTIONS.YES).map(x => x[0])
         const negativeKeysQuestion = filteredAnswers.filter(x => x[1] === OPTIONS.NO).map(x => x[0])
 
