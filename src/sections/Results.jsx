@@ -58,6 +58,9 @@ export const Results = () => {
     const {updateValues: updateStrategyValues, ...strategyAnswers} = useStrategyAnswersStore((state) => state)
     const navigate = useNavigate()
 
+    let totalAnswers = [documentAnswers, strategyAnswers]
+
+
     const handleSeriesSize = () => {
         if(windowSize.current < 400 ) {
             option.series[0].radius[1] = 60
@@ -77,11 +80,11 @@ export const Results = () => {
 
     }
 
-    const checkAnswersExist =  () => {
-      if(!getApproveQuestions(documentAnswers, 'approve').length || !getApproveQuestions(documentAnswers, 'decline').length) {
-        navigate("/questions")
-      }
-    }
+    // const checkAnswersExist =  () => {
+    //   if(!getApproveQuestions(documentAnswers, 'approve').length || !getApproveQuestions(documentAnswers, 'decline').length) {
+    //     // navigate("/questions")
+    //   }
+    // }
 
     useEffect(() => {
         handleSeriesSize()
@@ -90,11 +93,11 @@ export const Results = () => {
 
     useEffect(() => {
       addPercentageByCategory()
-      checkAnswersExist()
+      // checkAnswersExist()
     }, [documentAnswers, strategyAnswers ])
 
-    
-    console.log(getApproveQuestions(documentAnswers, 'approve'))
+  // console.log({data})  
+  // getApproveQuestions(data)
 
   return (
     <div className="px-4 md:px-20">
@@ -111,7 +114,7 @@ export const Results = () => {
               <h4 className="text-2xl font-semibold px-2">Aprobadas</h4>
               <Accordion className="my-4">
                 {
-                  getApproveQuestions(documentAnswers, 'approve').map((x) => (
+                  getApproveQuestions(totalAnswers, 'approve').map((x) => (
                     <AccordionItem key={x.key} aria-label="Accordion 1" title={`✅ ${x.question}`} hideIndicator> {x.question}</AccordionItem>
                   ))
                 }
@@ -122,7 +125,7 @@ export const Results = () => {
               <h4 className="text-2xl font-semibold px-2">Desaprobadas</h4>
               <Accordion className="my-4">
               {
-                  getApproveQuestions(documentAnswers, 'decline').map((x) => (
+                  getApproveQuestions(totalAnswers, 'decline').map((x) => (
                     <AccordionItem key={x.key} aria-label="Accordion 1" title={`❌ ${x.question}`}> 
                       <SuggestionCard suggestion={x.suggestion}/>
                     </AccordionItem>

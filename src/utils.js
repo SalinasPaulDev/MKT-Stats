@@ -23,37 +23,35 @@ export const getPercentageToAnswers = (total) => {
     return(Math.round(respuesta))
 }
 
-export const getApproveQuestions = (answers = [], find) => {
+export const getApproveQuestions = (answers, find) => {
     let approveQuestions = []
     let declineQuestions = []
 
-    console.log("Dentro de la funcion ", answers)
+    let allQuestions = answers.map(x => {
+        const filteredAnswers = Object.entries(x)
+        const approveKeysQuestion = filteredAnswers.filter(x => x[1] === OPTIONS.YES).map(x => x[0])
+        const negativeKeysQuestion = filteredAnswers.filter(x => x[1] === OPTIONS.NO).map(x => x[0])
 
-    // let allQuestions = answers.map(x => {
-    //     const filteredAnswers = Object.entries(x)
-    //     const approveKeysQuestion = filteredAnswers.filter(x => x[1] === OPTIONS.YES).map(x => x[0])
-    //     const negativeKeysQuestion = filteredAnswers.filter(x => x[1] === OPTIONS.NO).map(x => x[0])
+        if(approveKeysQuestion.length) {
+            documentQuestions.forEach(x => {
+                approveKeysQuestion.forEach(z => z === x.key && approveQuestions.push(x))
+            })
+            strategyQuestions.forEach(x => {
+                approveKeysQuestion.forEach(z => z === x.key && approveQuestions.push(x))
+            })
+        }
 
-    //     if(approveKeysQuestion.length) {
-    //         documentQuestions.forEach(x => {
-    //             approveKeysQuestion.forEach(z => z === x.key && approveQuestions.push(x))
-    //         })
-    //         strategyQuestions.forEach(x => {
-    //             approveKeysQuestion.forEach(z => z === x.key && approveQuestions.push(x))
-    //         })
-    //     }
+        if(negativeKeysQuestion.length){
+            documentQuestions.forEach(x => {
+                negativeKeysQuestion.forEach(z => z === x.key && declineQuestions.push(x))
+            })
 
-    //     if(negativeKeysQuestion.length){
-    //         documentQuestions.forEach(x => {
-    //             negativeKeysQuestion.forEach(z => z === x.key && declineQuestions.push(x))
-    //         })
+            strategyQuestions.forEach(x => {
+                negativeKeysQuestion.forEach(z => z === x.key && declineQuestions.push(x))
+            })
+        }
 
-    //         strategyQuestions.forEach(x => {
-    //             negativeKeysQuestion.forEach(z => z === x.key && declineQuestions.push(x))
-    //         })
-    //     }
-
-    // })
+    })
     const filteredAnswers = Object.entries(answers)
     const approveKeysQuestion = filteredAnswers.filter(x => x[1] === OPTIONS.YES).map(x => x[0])
     const negativeKeysQuestion = filteredAnswers.filter(x => x[1] === OPTIONS.NO).map(x => x[0])
@@ -73,7 +71,7 @@ export const getApproveQuestions = (answers = [], find) => {
 
 
 
-    
+console.log("Dentro de la funcion ",{ approveQuestions,declineQuestions} )
     if(find === 'approve'){
         return approveQuestions
     }else if (find === 'decline') {
