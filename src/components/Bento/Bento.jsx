@@ -21,7 +21,7 @@ export const Bento = () => {
     <article className="
         w-full max-w-[1400px]
         grid grid-cols-10 auto-rows-[17rem] gap-4
-        mx-auto p-8 md:p-20
+        mx-auto px-8 md:px-20 py-4
     ">
     <BentoItem className="col-span-10 md:col-span-6" title="Documentación" path="documentation" image={DocumentationImage} percentege={getPercentage(documentaryAnswers)}/>
     <BentoItem className="col-span-10 md:col-span-4" title="Estrategia" path="strategy" image={StrategyImage}  percentege={getPercentage(strategyAnswers)}/>

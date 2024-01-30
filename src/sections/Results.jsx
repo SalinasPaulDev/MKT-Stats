@@ -82,11 +82,11 @@ export const Results = () => {
 
     }
 
-    // const checkAnswersExist =  () => {
-    //   if(!getApproveQuestions(documentAnswers, 'approve').length || !getApproveQuestions(documentAnswers, 'decline').length) {
-    //     // navigate("/questions")
-    //   }
-    // }
+    const checkAnswersExist =  () => {
+      if(!getApproveQuestions(totalAnswers, 'approve').length && !getApproveQuestions(totalAnswers, 'decline').length) {
+        navigate("/questions")
+      }
+    }
 
     useEffect(() => {
         handleSeriesSize()
@@ -95,11 +95,9 @@ export const Results = () => {
 
     useEffect(() => {
       addPercentageByCategory()
-      // checkAnswersExist()
+      checkAnswersExist()
     }, [documentAnswers, strategyAnswers ])
 
-  // console.log({data})  
-  // getApproveQuestions(data)
 
   return (
     <div className="px-4 md:px-20">
@@ -117,31 +115,44 @@ export const Results = () => {
         <h3 className="font-bold text-4xl text-center mt-12">Resultados</h3>
         
         <div className="flex flex-col justify-center items-center my-20 gap-12 ">
-            <div className="md:w-2/3">
-              <h4 className="text-2xl font-semibold px-2">Aprobadas</h4>
-              <Accordion className="my-4">
-                {
-                  getApproveQuestions(totalAnswers, 'approve').map((x) => (
-                    <AccordionItem key={x.key} aria-label="Accordion 1" title={`✅ ${x.question}`} hideIndicator> {x.question}</AccordionItem>
-                  ))
-                }
-
-              </Accordion>
-            </div>
-            <div className="md:w-2/3">
-              <h4 className="text-2xl font-semibold px-2">Desaprobadas</h4>
-              <Accordion className="my-4">
               {
-                  getApproveQuestions(totalAnswers, 'decline').map((x) => (
-                    <AccordionItem key={x.key} aria-label="Accordion 1" title={`❌ ${x.question}`}> 
-                      <SuggestionCard suggestion={x.suggestion}/>
-                    </AccordionItem>
-                  ))
-                }
+                getApproveQuestions(totalAnswers, 'approve').length ? (
+                  <div className="md:w-2/3">
 
-              </Accordion>
+                  <h4 className="text-2xl font-semibold px-2">Aprobadas</h4>
+                  <Accordion className="my-4">
+                    {
+                      getApproveQuestions(totalAnswers, 'approve').map((x) => (
+                        <AccordionItem key={x.key} aria-label="Accordion 1" title={`✅ ${x.question}`} hideIndicator> {x.question}</AccordionItem>
+                      ))
+                    }
+    
+                  </Accordion>
+                </div>
+
+                ) : null
+              }
+
+              {
+                getApproveQuestions(totalAnswers, 'approve').length ? (
+                  <div className="md:w-2/3">
+                  <h4 className="text-2xl font-semibold px-2">Desaprobadas</h4>
+                  <Accordion className="my-4">
+                  {
+                      getApproveQuestions(totalAnswers, 'decline').map((x) => (
+                        <AccordionItem key={x.key} aria-label="Accordion 1" title={`❌ ${x.question}`}> 
+                          <SuggestionCard suggestion={x.suggestion}/>
+                        </AccordionItem>
+                      ))
+                    }
+    
+                  </Accordion>
+                </div>
+                
+                ): null
+
+                  }
             </div>
-        </div>
     </div>
   )
 }
