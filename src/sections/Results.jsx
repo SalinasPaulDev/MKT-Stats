@@ -2,7 +2,7 @@ import ReactEcharts from "echarts-for-react";
 import { useEffect, useRef, useState } from "react";
 import Logo from '/LogoEmpresa.svg'
 import { useDocumentationAnswersStore, useStrategyAnswersStore } from "../store/answers";
-import { getApproveQuestions, getPercentage, getPercentageToAnswers } from "../utils";
+import { getApproveQuestions, getPercentageToAnswers } from "../utils";
 import {useNavigate} from 'react-router-dom'
 import {Accordion, AccordionItem} from "@nextui-org/react";
 import { SuggestionCard } from "../components/Card/Cards";
