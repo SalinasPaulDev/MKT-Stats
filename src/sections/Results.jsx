@@ -1,5 +1,5 @@
 import ReactEcharts from "echarts-for-react"; 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Logo from '/LogoEmpresa.svg'
 import { useDocumentationAnswersStore, useStrategyAnswersStore } from "../store/answers";
 import { getApproveQuestions, getPercentage, getPercentageToAnswers } from "../utils";
@@ -13,7 +13,7 @@ import { SuggestionCard } from "../components/Card/Cards";
 const option = {
   tooltip: {
     trigger: 'item',
-    formatter: '{b} : {c} ({d}%)'
+    formatter: '{b} : {c}%'
   },
   legend: {
     left: 'center',
@@ -56,6 +56,7 @@ export const Results = () => {
     const windowSize = useRef(window.innerWidth);
     const {updateValues: updateDocumentsValues, ...documentAnswers} = useDocumentationAnswersStore((state) => state)
     const {updateValues: updateStrategyValues, ...strategyAnswers} = useStrategyAnswersStore((state) => state)
+    const [isValuesUpdated, setIsValuesUpdated] = useState(false)
     const navigate = useNavigate()
 
     let totalAnswers = [documentAnswers, strategyAnswers]
@@ -76,6 +77,7 @@ export const Results = () => {
         if(x.name === 'Estrategia'){
           x.value = getPercentageToAnswers(strategyAnswers)
         }
+        setIsValuesUpdated(true)
       })
 
     }
@@ -101,12 +103,17 @@ export const Results = () => {
 
   return (
     <div className="px-4 md:px-20">
-        <div className="w-full flex flex-col justify-center items-center gap-8 md:flex-row md:gap-1">
+      {
+        isValuesUpdated && (
+          <div className="w-full flex flex-col justify-center items-center gap-8 md:flex-row md:gap-1">
             <div className="w-full md:w-2/3">
                 <ReactEcharts  className="mt-8 text-center m-auto" option={option}/>
             </div>
             <img src={Logo} width={200} className="opacity-60"/>
         </div>
+        )
+      }
+
         <h3 className="font-bold text-4xl text-center mt-12">Resultados</h3>
         
         <div className="flex flex-col justify-center items-center my-20 gap-12 ">
