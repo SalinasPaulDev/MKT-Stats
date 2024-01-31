@@ -13,7 +13,7 @@ export default function Home () {
 
             <Button link={'/questions'} text={'¡Comenzemos!'}/>
 
-            <img src={Logo} alt='id creativa logo' className='w-[200px] m-auto my-12 opacity-20'/>
+            <img src={Logo} alt='id creativa logo' className='w-[200px] h-[100px] m-auto my-12 opacity-20'/>
         </div>
         
     </>
