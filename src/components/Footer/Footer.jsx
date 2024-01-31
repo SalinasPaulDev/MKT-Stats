@@ -8,7 +8,7 @@ export const Footer = () => {
   return (
     <div style={{backgroundImage: 'url("wave_footer.svg")'}} className={`${location.pathname === '/' ? 'hidden' : ''} w-full h-[350px] bg-cover bg-center bg-no-repeat p-20 absolute left-0 bottom-0 px-12 md:px-20`}>
       <div className={`md:flex md:justify-between items-center`}>
-        <img src={Logo} className='w-[200px] mt-16 max-md:m-auto max-md:mt-16 ' />
+        <img src={Logo} className='w-[200px] h-[100px] mt-16 max-md:m-auto max-md:mt-16 ' />
         <img src={QR_code} className='rounded-3xl w-[110px] h-[110px] mt-16 max-md:hidden'/>
         
       </div>

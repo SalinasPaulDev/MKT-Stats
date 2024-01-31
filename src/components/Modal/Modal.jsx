@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {Modal as NextModal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
-import Cross from '/remove.svg'
 import { useHandleModal } from "../../store/handleModal";
 
 export default function Modal() {
@@ -11,7 +10,7 @@ export default function Modal() {
       <NextModal isOpen={open} >
         <ModalContent>
               <ModalHeader className="flex flex-col gap-1">
-                <img src={Cross} className="w-20 m-auto"/>
+                <img src={'/remove.svg'} className="w-20 m-auto"/>
                 <h2 className="text-center text-2xl mt-2">Ups!</h2>
               </ModalHeader>
               <ModalBody>
