@@ -1,5 +1,5 @@
 import { BentoItem } from "./BentoItem"
-import { useDocumentationAnswersStore, useStrategyAnswersStore } from "../../store/answers"
+import { useDocumentationAnswersStore, useIdentityAnswersStore, useStrategyAnswersStore } from "../../store/answers"
 import { getPercentage } from "../../utils"
 
 
@@ -7,11 +7,7 @@ import { getPercentage } from "../../utils"
 export const Bento = () => {
   const {updateValues: documentUpdateValues, ...documentaryAnswers} = useDocumentationAnswersStore((state) => state)
   const {updateValues : strategyUpdateValues, ...strategyAnswers} = useStrategyAnswersStore((state) => state)
-
-  const isResultsActive = getPercentage(documentaryAnswers) === 100 && getPercentage(strategyAnswers) === 100 ? true : false
-
-  console.log(isResultsActive)
-
+  const {updateValues : identityUpdateValues, ...identityAnswers} = useIdentityAnswersStore((state) => state)
 
   return (
     <article className="
@@ -21,7 +17,7 @@ export const Bento = () => {
     ">
     <BentoItem className="col-span-10 md:col-span-6" title="Documentación" path="documentation" image={'/documentacion.webp'} percentege={getPercentage(documentaryAnswers)}/>
     <BentoItem className="col-span-10 md:col-span-4" title="Estrategia" path="strategy" image={'/estrategia.webp'}  percentege={getPercentage(strategyAnswers)}/>
-    <BentoItem className="col-span-10 md:col-span-4" title="Identidad" path=""  image={'/identidad.webp'} />
+    <BentoItem className="col-span-10 md:col-span-4" title="Identidad" percentege={getPercentage(identityAnswers)} path="identity"  image={'/identidad.webp'} />
     <BentoItem className="col-span-10 md:col-span-6" title="Equipo" path="" image={'/equipo.webp'} />
     </article>
   )

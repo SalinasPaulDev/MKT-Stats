@@ -1,7 +1,7 @@
 import ReactEcharts from "echarts-for-react"; 
 import { useEffect, useRef, useState } from "react";
 import Logo from '/LogoEmpresa.svg'
-import { useDocumentationAnswersStore, useStrategyAnswersStore } from "../store/answers";
+import { useDocumentationAnswersStore, useIdentityAnswersStore, useStrategyAnswersStore } from "../store/answers";
 import { getApproveQuestions, getPercentageToAnswers } from "../utils";
 import {useNavigate} from 'react-router-dom'
 import {Accordion, AccordionItem} from "@nextui-org/react";
@@ -56,10 +56,11 @@ export const Results = () => {
     const windowSize = useRef(window.innerWidth);
     const {updateValues: updateDocumentsValues, ...documentAnswers} = useDocumentationAnswersStore((state) => state)
     const {updateValues: updateStrategyValues, ...strategyAnswers} = useStrategyAnswersStore((state) => state)
+    const {updateValues: updateIdentityValues, ...identityAnswers} = useIdentityAnswersStore((state) => state)
     const [isValuesUpdated, setIsValuesUpdated] = useState(false)
     const navigate = useNavigate()
 
-    let totalAnswers = [documentAnswers, strategyAnswers]
+    let totalAnswers = [documentAnswers, strategyAnswers, identityAnswers]
 
 
     const handleSeriesSize = () => {
@@ -76,6 +77,9 @@ export const Results = () => {
         }
         if(x.name === 'Estrategia'){
           x.value = getPercentageToAnswers(strategyAnswers)
+        }
+        if(x.name === 'Identidad'){
+          x.value = getPercentageToAnswers(identityAnswers)
         }
         setIsValuesUpdated(true)
       })
@@ -96,7 +100,7 @@ export const Results = () => {
     useEffect(() => {
       addPercentageByCategory()
       checkAnswersExist()
-    }, [documentAnswers, strategyAnswers ])
+    }, [documentAnswers, strategyAnswers, identityAnswers ])
 
 
   return (

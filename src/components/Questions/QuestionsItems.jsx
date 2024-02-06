@@ -1,6 +1,6 @@
 import { Link, ScrollRestoration, useLocation, useParams } from 'react-router-dom'
 import Logo from '/logo.svg'
-import { useDocumentationAnswersStore, useStrategyAnswersStore } from '../../store/answers'
+import { useDocumentationAnswersStore, useIdentityAnswersStore, useStrategyAnswersStore } from '../../store/answers'
 import { useEffect, useState } from 'react'
 import { documentQuestions, identityQuestions, strategyQuestions } from '../../utils/questions'
 import { Button } from '../Button/Button'
@@ -19,7 +19,7 @@ export const QuestionsItems = () => {
 
     const {updateValues: updateDocumentationValues, ...storeQuestions} = useDocumentationAnswersStore((state) => state)
     const {updateValues : updateStrategyValues, ...strategyAnswers} = useStrategyAnswersStore((state) => state)
-    const {updateValues : updateIdentityValues, ...identityAnswers} = useStrategyAnswersStore((state) => state)
+    const {updateValues : updateIdentityValues, ...identityAnswers} = useIdentityAnswersStore((state) => state)
 
     const currentLocation = location.pathname
 
@@ -68,6 +68,17 @@ export const QuestionsItems = () => {
                 return OPTIONS.YES
              }
              if(strategyAnswers[questionFound] === 'no') {
+                
+                return OPTIONS.NO
+             }else {
+                return OPTIONS.EMPTY
+             }
+        }else if (currentLocation === '/questions/identity') {
+            questionFound = Object.keys(identityAnswers).find(x => x === key)
+            if(identityAnswers[questionFound] === 'yes') {
+                return OPTIONS.YES
+             }
+             if(identityAnswers[questionFound] === 'no') {
                 
                 return OPTIONS.NO
              }else {
