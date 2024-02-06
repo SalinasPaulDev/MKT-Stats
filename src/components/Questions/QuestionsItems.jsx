@@ -2,7 +2,7 @@ import { Link, ScrollRestoration, useLocation, useParams } from 'react-router-do
 import Logo from '/logo.svg'
 import { useDocumentationAnswersStore, useStrategyAnswersStore } from '../../store/answers'
 import { useEffect, useState } from 'react'
-import { documentQuestions, strategyQuestions } from '../../utils/questions'
+import { documentQuestions, identityQuestions, strategyQuestions } from '../../utils/questions'
 import { Button } from '../Button/Button'
 import { getApproveQuestions } from '../../utils'
 
@@ -19,6 +19,7 @@ export const QuestionsItems = () => {
 
     const {updateValues: updateDocumentationValues, ...storeQuestions} = useDocumentationAnswersStore((state) => state)
     const {updateValues : updateStrategyValues, ...strategyAnswers} = useStrategyAnswersStore((state) => state)
+    const {updateValues : updateIdentityValues, ...identityAnswers} = useStrategyAnswersStore((state) => state)
 
     const currentLocation = location.pathname
 
@@ -27,6 +28,8 @@ export const QuestionsItems = () => {
             setCurrentQuestion(documentQuestions)
         }else if (currentLocation === '/questions/strategy') {
             setCurrentQuestion(strategyQuestions)
+        }else if (currentLocation === '/questions/identity') {
+            setCurrentQuestion(identityQuestions)
         }
     }
 
@@ -35,6 +38,8 @@ export const QuestionsItems = () => {
             updateDocumentationValues(key, value)
         }else if (currentLocation === '/questions/strategy') {
             updateStrategyValues(key,value)
+        }else if (currentLocation === '/questions/identity') {
+            updateIdentityValues(key,value)
         }
     }
 

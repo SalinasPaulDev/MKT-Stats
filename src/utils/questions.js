@@ -58,3 +58,36 @@ export const strategyQuestions = [
         key:'desiredPositioning'
     },
 ]
+
+export const identityQuestions = [
+    {
+        question: 'Naming (Nombre de marca)',
+        suggestion: '',
+        key: 'namingAnswer'
+    },
+    {
+        question: 'Titulo de Registro de Marca',
+        suggestion: '',
+        key: 'brandRegisterAnswer'
+    },
+    {
+        question: 'Sistema de Identidad visual (Logotipo, Símbolo, Colores, Tipografía)',
+        suggestion: '',
+        key: 'logoAnswer'
+    },
+    {
+        question: 'Elementos de personalidad de marca (Voz, Tono, Mística)',
+        suggestion: '',
+        key:'personalityAnswer'
+    },
+    {
+        question: 'Lineamientos de identidad (Manual de identidad)',
+        suggestion: '',
+        key:'lineamentAnswer'
+    },
+    {
+        question: 'Lineamientos de experiencia de marca (Brand Book)',
+        suggestion: '',
+        key:'brandExperienceAnswer'
+    },
+]

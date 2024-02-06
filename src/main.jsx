@@ -42,6 +42,11 @@ const router = createBrowserRouter([
     path: "/questions/strategy",
     element: <QuestionsItems />,
     errorElement: <ErrorPage />
+  },
+  {
+    path: "/questions/identity",
+    element: <QuestionsItems />,
+    errorElement: <ErrorPage />
   }
 ])
 

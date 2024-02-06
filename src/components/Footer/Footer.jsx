@@ -13,7 +13,7 @@ export const Footer = () => {
         
       </div>
       <div className='text-center text-slate-700 max-md:mt-12 max-md:text-sm md:mt-8 max-md:w-full'>
-        <p>Creación de <a href='' id='link'>Brian Paul Salinas</a> by <a id='link' href='https://idcreativa.com/' target='_blank'>ID Creaiva ®️</a></p>
+        <p>Creación de <a href='' id='link'>Brian Paul Salinas</a> by <a id='link' href='https://idcreativa.com/' target='_blank'>ID Creativa ®️</a></p>
       </div>
     </div>
   )

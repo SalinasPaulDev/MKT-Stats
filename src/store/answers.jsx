@@ -18,3 +18,13 @@ export const useStrategyAnswersStore = create((set) => ({
     desiredPositioning: '',
     updateValues: (key, answer) => set(() => ({[key]: answer}))
 }))
+
+export const useIdentityAnswersStore = create((set) => ({
+    namingAnswer: '',
+    brandRegisterAnswer: '',
+    logoAnswer: '',
+    personalityAnswer: '',
+    lineamentAnswer: '',
+    brandExperienceAnswer: '',
+    updateValues: (key, answer) => set(() => ({[key]: answer}))
+}))
