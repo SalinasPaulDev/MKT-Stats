@@ -91,3 +91,41 @@ export const identityQuestions = [
         key:'brandExperienceAnswer'
     },
 ]
+
+export const teamWorkQuestions = [
+    {
+        question: '¿Se cuenta con un equipo dedicado a MKT?',
+        suggestion: '',
+        key: 'teamMKT',
+        answers: [
+            'interno',
+            'no',
+            'si pero no al 100%',
+            'contamos con una agencia externa de MKT'
+        ]
+    },
+    {
+        question: '¿De contar con un equipo de MKT interno o contratado a una agencia, por favor detalle el talento y responsabilidades asignadas a cada uno.',
+        suggestion: '',
+        key: 'teamMKT2',
+        answers: ''
+    },
+    {
+        question: '¿Se cuenta con un equipo dedicado de Comunicación y diseño?',
+        suggestion: '',
+        key: 'designAnswer',
+        answers: [
+            'interno',
+            'no',
+            'si pero no al 100%',
+            'contamos con una agencia externa de MKT'
+        ]
+    },
+    {
+        question: 'De contar con un equipo de Comunicación y diseño interno o contratado a una agencia, por favor detalle el talento y responsabilidades asignadas a cada uno.',
+        suggestion: '',
+        key: 'designAnswer2',
+        answers: ''
+    },
+
+]
