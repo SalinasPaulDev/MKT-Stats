@@ -1,131 +1,132 @@
 export const documentQuestions = [
-    {
-        question: 'Propósito fundamental debidamente documentado (Por qué y para qué)',
-        suggestion: 'Define el propósito fundamental de tu empresa a través de reflexiones internas, conexión con valores, feedback externo y comunicación clara, integrándolo en la toma de decisiones y revisándolo periódicamente para mantener su relevancia y motivación.',
-        key: 'documentedAnswer'
-    },
-    {
-        question: 'Manifiesto de marca Valores y comportamientos observables',
-        suggestion: 'Define los valores fundamentales de tu empresa a través de conversaciones internas, feedback de clientes y análisis de competidores, comunícalos internamente, e intégralos en las operaciones diarias para construir una identidad sólida y coherente.',
-        key: 'manifestAnswer'
-    },
-    {
-        question: 'Definición de audiencias objetivas (internas, externas, estratégicas, comerciales, etc.)',
-        suggestion: 'La identificación y comprensión de tus audiencias son fundamentales para el éxito de cualquier estrategia de comunicación y marketing. Aquí tienes una sugerencia para abordar esta situación: Realiza una investigación de mercado para comprender mejor quiénes son tus clientes actuales y potenciales.',
-        key: 'audienceAnswer'
-    },
-    {
-        question: 'Definición y documentación de portafolio (productos y/o servicios)',
-        suggestion: 'Define y documenta claramente tu portafolio de productos o servicios, priorizando y describiendo detalladamente cada elemento, para comunicar de manera efectiva su propuesta de valor y facilitar la toma de decisiones internas y externas.',
-        key:'portfolioAnswer'
-    },
+	{
+		question:
+			'Propósito fundamental debidamente documentado (Por qué y para qué)',
+		suggestion:
+			'Define el propósito fundamental de tu empresa a través de reflexiones internas, conexión con valores, feedback externo y comunicación clara, integrándolo en la toma de decisiones y revisándolo periódicamente para mantener su relevancia y motivación.',
+		key: 'documentedAnswer',
+	},
+	{
+		question: 'Manifiesto de marca Valores y comportamientos observables',
+		suggestion:
+			'Define los valores fundamentales de tu empresa a través de conversaciones internas, feedback de clientes y análisis de competidores, comunícalos internamente, e intégralos en las operaciones diarias para construir una identidad sólida y coherente.',
+		key: 'manifestAnswer',
+	},
+	{
+		question:
+			'Definición de audiencias objetivas (internas, externas, estratégicas, comerciales, etc.)',
+		suggestion:
+			'La identificación y comprensión de tus audiencias son fundamentales para el éxito de cualquier estrategia de comunicación y marketing. Aquí tienes una sugerencia para abordar esta situación: Realiza una investigación de mercado para comprender mejor quiénes son tus clientes actuales y potenciales.',
+		key: 'audienceAnswer',
+	},
+	{
+		question:
+			'Definición y documentación de portafolio (productos y/o servicios)',
+		suggestion:
+			'Define y documenta claramente tu portafolio de productos o servicios, priorizando y describiendo detalladamente cada elemento, para comunicar de manera efectiva su propuesta de valor y facilitar la toma de decisiones internas y externas.',
+		key: 'portfolioAnswer',
+	},
 ]
 
 export const strategyQuestions = [
-    {
-        question: 'Estrategia de arquitectura de marca',
-        suggestion: 'Desarrolla una estrategia de arquitectura de marca centrada en una narrativa unificadora que conecte tus productos o servicios, proporcionando claridad y consistencia a la identidad de tu empresa.',
-        key: 'architectureBrand'
-    },
-    {
-        question: 'Propuesta única de valor',
-        suggestion: 'Identifica y destaca los aspectos únicos y valiosos de tus productos o servicios, basándote en las necesidades y deseos de tus clientes, para crear una propuesta única de valor que te diferencie en el mercado.',
-        key: 'proposalValue'
-    },
-    {
-        question: 'Estrategia de comercialización (Canales, portafolio, objetivos, indicadores)',
-        suggestion: 'Desarrolla una estrategia de comercialización identificando canales efectivos, optimizando tu portafolio de productos, estableciendo objetivos claros y utilizando indicadores para medir el rendimiento y ajustar continuamente tu enfoque.',
-        key: 'marketingStrategy'
-    },
-    {
-        question: 'Plan integral de Comunicación (Audiencias/Mensajes clave/Vehículos)',
-        suggestion: 'Inicia con la identificación clara de tus audiencias, mensajes clave y canales de comunicación para desarrollar un plan integral que fortalezca la conexión con tu público y optimice la difusión de tus mensajes.',
-        key:'comunicationPlan'
-    },
-    {
-        question: 'Estrategia de Posicionamiento (Medios, Canales, Objetivos estratégicos)',
-        suggestion: 'Identifica tus audiencias clave, estudia los canales de comunicación relevantes, y establece objetivos estratégicos para desarrollar una efectiva estrategia de posicionamiento que destaque tu empresa en el mercado.',
-        key:'positioningStrategy'
-    },
-    {
-        question: 'Estrategia digital, Performance & Posicionamiento',
-        suggestion: 'Inicia el desarrollo de una estrategia digital centrada en el rendimiento y el posicionamiento para maximizar la visibilidad y eficacia de tu empresa en línea.',
-        key:'performanceStrategy'
-    },
-    {
-        question: 'Definición de posicionamiento deseado',
-        suggestion: 'Define un claro posicionamiento deseado identificando las fortalezas y singularidades de tu empresa, y comunica de manera consistente esos elementos únicos para destacarte en el mercado.',
-        key:'desiredPositioning'
-    },
+	{
+		question: 'Estrategia de arquitectura de marca',
+		suggestion:
+			'Desarrolla una estrategia de arquitectura de marca centrada en una narrativa unificadora que conecte tus productos o servicios, proporcionando claridad y consistencia a la identidad de tu empresa.',
+		key: 'architectureBrand',
+	},
+	{
+		question: 'Propuesta única de valor',
+		suggestion:
+			'Identifica y destaca los aspectos únicos y valiosos de tus productos o servicios, basándote en las necesidades y deseos de tus clientes, para crear una propuesta única de valor que te diferencie en el mercado.',
+		key: 'proposalValue',
+	},
+	{
+		question:
+			'Estrategia de comercialización (Canales, portafolio, objetivos, indicadores)',
+		suggestion:
+			'Desarrolla una estrategia de comercialización identificando canales efectivos, optimizando tu portafolio de productos, estableciendo objetivos claros y utilizando indicadores para medir el rendimiento y ajustar continuamente tu enfoque.',
+		key: 'marketingStrategy',
+	},
+	{
+		question:
+			'Plan integral de Comunicación (Audiencias/Mensajes clave/Vehículos)',
+		suggestion:
+			'Inicia con la identificación clara de tus audiencias, mensajes clave y canales de comunicación para desarrollar un plan integral que fortalezca la conexión con tu público y optimice la difusión de tus mensajes.',
+		key: 'comunicationPlan',
+	},
+	{
+		question:
+			'Estrategia de Posicionamiento (Medios, Canales, Objetivos estratégicos)',
+		suggestion:
+			'Identifica tus audiencias clave, estudia los canales de comunicación relevantes, y establece objetivos estratégicos para desarrollar una efectiva estrategia de posicionamiento que destaque tu empresa en el mercado.',
+		key: 'positioningStrategy',
+	},
+	{
+		question: 'Estrategia digital, Performance & Posicionamiento',
+		suggestion:
+			'Inicia el desarrollo de una estrategia digital centrada en el rendimiento y el posicionamiento para maximizar la visibilidad y eficacia de tu empresa en línea.',
+		key: 'performanceStrategy',
+	},
+	{
+		question: 'Definición de posicionamiento deseado',
+		suggestion:
+			'Define un claro posicionamiento deseado identificando las fortalezas y singularidades de tu empresa, y comunica de manera consistente esos elementos únicos para destacarte en el mercado.',
+		key: 'desiredPositioning',
+	},
 ]
 
 export const identityQuestions = [
-    {
-        question: 'Naming (Nombre de marca)',
-        suggestion: '',
-        key: 'namingAnswer'
-    },
-    {
-        question: 'Titulo de Registro de Marca',
-        suggestion: '',
-        key: 'brandRegisterAnswer'
-    },
-    {
-        question: 'Sistema de Identidad visual (Logotipo, Símbolo, Colores, Tipografía)',
-        suggestion: '',
-        key: 'logoAnswer'
-    },
-    {
-        question: 'Elementos de personalidad de marca (Voz, Tono, Mística)',
-        suggestion: '',
-        key:'personalityAnswer'
-    },
-    {
-        question: 'Lineamientos de identidad (Manual de identidad)',
-        suggestion: '',
-        key:'lineamentAnswer'
-    },
-    {
-        question: 'Lineamientos de experiencia de marca (Brand Book)',
-        suggestion: '',
-        key:'brandExperienceAnswer'
-    },
+	{
+		question: 'Naming (Nombre de marca)',
+		suggestion: '',
+		key: 'namingAnswer',
+	},
+	{
+		question: 'Titulo de Registro de Marca',
+		suggestion: '',
+		key: 'brandRegisterAnswer',
+	},
+	{
+		question:
+			'Sistema de Identidad visual (Logotipo, Símbolo, Colores, Tipografía)',
+		suggestion: '',
+		key: 'logoAnswer',
+	},
+	{
+		question: 'Elementos de personalidad de marca (Voz, Tono, Mística)',
+		suggestion: '',
+		key: 'personalityAnswer',
+	},
+	{
+		question: 'Lineamientos de identidad (Manual de identidad)',
+		suggestion: '',
+		key: 'lineamentAnswer',
+	},
+	{
+		question: 'Lineamientos de experiencia de marca (Brand Book)',
+		suggestion: '',
+		key: 'brandExperienceAnswer',
+	},
 ]
 
 export const teamWorkQuestions = [
-    {
-        question: '¿Se cuenta con un equipo dedicado a MKT?',
-        suggestion: '',
-        key: 'teamMKT',
-        answers: [
-            'interno',
-            'no',
-            'si pero no al 100%',
-            'contamos con una agencia externa de MKT'
-        ]
-    },
-    {
-        question: '¿De contar con un equipo de MKT interno o contratado a una agencia, por favor detalle el talento y responsabilidades asignadas a cada uno.',
-        suggestion: '',
-        key: 'teamMKT2',
-        answers: ''
-    },
-    {
-        question: '¿Se cuenta con un equipo dedicado de Comunicación y diseño?',
-        suggestion: '',
-        key: 'designAnswer',
-        answers: [
-            'interno',
-            'no',
-            'si pero no al 100%',
-            'contamos con una agencia externa de MKT'
-        ]
-    },
-    {
-        question: 'De contar con un equipo de Comunicación y diseño interno o contratado a una agencia, por favor detalle el talento y responsabilidades asignadas a cada uno.',
-        suggestion: '',
-        key: 'designAnswer2',
-        answers: ''
-    },
-
+	{
+		question: '¿Se cuenta con un equipo dedicado a MKT?',
+		suggestion: '',
+		key: 'teamMKT',
+		answers: ['Interno', 'No', 'Si pero no al 100%', 'Agencia externa de MKT'],
+	},
+	{
+		question: '¿Se cuenta con un equipo dedicado de Comunicación y diseño?',
+		suggestion: '',
+		key: 'comunicationTeam',
+		answers: ['Interno', 'No', 'Si pero no al 100%', 'Agencia externa de MKT'],
+	},
+	{
+		question: '¿Se cuenta con un equipo dedicado a la estrategia digital?',
+		suggestion: '',
+		key: 'digitalStrategy',
+		answers: ['Interno', 'no', 'Si pero no al 100%', 'Agencia externa de MKT'],
+	},
 ]

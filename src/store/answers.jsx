@@ -28,3 +28,11 @@ export const useIdentityAnswersStore = create((set) => ({
     brandExperienceAnswer: '',
     updateValues: (key, answer) => set(() => ({[key]: answer}))
 }))
+
+export const useTeamWorkAnswersStore = create((set) => ({
+    teamMKT: {answer: '', details:''},
+    comunicationTeam: {answer: '', details:''},
+    digitalStrategy: {answer: '', details:''},
+    MKTbudget: {answer: '', details:''},
+    updateValues: (key, answer, details) => set(() => ({[key]: {answer: answer, details: details}}))
+}))
