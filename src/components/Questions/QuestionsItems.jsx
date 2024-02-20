@@ -14,7 +14,7 @@ import {
 	teamWorkQuestions,
 } from '../../utils/questions'
 import {Button} from '../Button/Button'
-import {Select, SelectItem} from '@nextui-org/react'
+import {Select, SelectItem, Textarea} from '@nextui-org/react'
 
 export const OPTIONS = {
 	YES: 'yes',
@@ -24,6 +24,7 @@ export const OPTIONS = {
 
 export const QuestionsItems = () => {
 	const [currentQuestion, setCurrentQuestion] = useState([])
+	const [textAreaValue, setTextAreaValue] = useState()
 	const location = useLocation()
 
 	const {updateValues: updateDocumentationValues, ...storeQuestions} =
@@ -49,7 +50,7 @@ export const QuestionsItems = () => {
 		}
 	}
 
-	const handleUpdateValues = (key, value, details) => {
+	const handleUpdateValues = ({key, value, details}) => {
 		if (currentLocation === '/questions/documentation') {
 			updateDocumentationValues(key, value)
 		} else if (currentLocation === '/questions/strategy') {
@@ -101,11 +102,7 @@ export const QuestionsItems = () => {
 		}
 	}
 
-	const haveTextBox = ''
-	haveTextBox.length
-
-	console.log({teamValues})
-
+	console.log(teamValues)
 	return (
 		<div className='lg:w-full '>
 			<div
@@ -127,33 +124,60 @@ export const QuestionsItems = () => {
 				{currentQuestion.map((question, index) => (
 					<div
 						key={question.question}
-						className='border-blue-500 min-h-14 bg-indigo-600/5 max-w-[800px] rounded-xl p-4 lg:min-w-max'
+						className={`border-blue-500 min-h-14 bg-indigo-600/5 max-w-[800px] rounded-xl p-4 lg:min-w-max transition ease-in-out delay-150`}
 					>
 						<p>{`${index + 1} - ${question.question}`}</p>
 						<div className='mt-4'>
 							{currentLocation === '/questions/team' ? (
-								<Select
-									label='Elige una opción'
-									className='max-w-xs'
-									color='primary'
-									onChange={(e) =>
-										handleUpdateValues(question.key, e.target.value)
+								<>
+									<Select
+										label='Elige una opción'
+										className='max-w-xs'
+										color='primary'
+										onChange={(e) =>
+											handleUpdateValues({
+												key: question.key,
+												value: e.target.value,
+											})
+										}
+										defaultSelectedKeys={
+											// teamValues[question.key].answer.length > 1
+											[teamValues[question.key].answer]
+											// : null
+										}
+									>
+										{question.answers.map((x) => (
+											<SelectItem
+												key={x}
+												value={x}
+											>
+												{x}
+											</SelectItem>
+										))}
+									</Select>
+									{
+										// teamValues[question.key].answer.length
+										4 > 3 && (
+											<div>
+												<Textarea
+													bordered
+													color='primary'
+													labelPlaceholder='Denos mas detalles'
+													label='Describa detalladamente:'
+													className='mt-8'
+													maxLength={300}
+													onChange={({target}) =>
+														handleUpdateValues({
+															key: question.key,
+															details: target.value,
+														})
+													}
+													value={teamValues[question.key].details}
+												/>
+											</div>
+										)
 									}
-									defaultSelectedKeys={
-										teamValues[question.key].answer.length > 1
-											? [teamValues[question.key].answer]
-											: null
-									}
-								>
-									{question.answers.map((x) => (
-										<SelectItem
-											key={x}
-											value={x}
-										>
-											{x}
-										</SelectItem>
-									))}
-								</Select>
+								</>
 							) : (
 								<div className='inline-flex items-center gap-4 mt-4 ml-4'>
 									<label className='flex items-center gap-2'>
@@ -163,7 +187,10 @@ export const QuestionsItems = () => {
 											value={'yes'}
 											name={question.question}
 											onChange={({target}) =>
-												handleUpdateValues(question.key, target.value)
+												handleUpdateValues({
+													key: question.key,
+													value: target.value,
+												})
 											}
 											checked={
 												isCheckedv2(question.key) === OPTIONS.YES ? true : false
@@ -178,7 +205,10 @@ export const QuestionsItems = () => {
 											value={'no'}
 											name={question.question}
 											onChange={({target}) =>
-												handleUpdateValues(question.key, target.value)
+												handleUpdateValues({
+													key: question.key,
+													value: target.value,
+												})
 											}
 											checked={
 												isCheckedv2(question.key) === OPTIONS.NO ? true : false

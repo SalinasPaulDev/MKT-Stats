@@ -57,6 +57,11 @@ h1 {
 	animation-direction: alternate;
 }
 
+.with-textarea {
+	transition: 4s ease-in;
+	height: 200px;
+}
+
 @keyframes animationRow {
 	0% {
 		transform: translateY(0);
