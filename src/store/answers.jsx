@@ -38,7 +38,7 @@ export const useTeamWorkAnswersStore = create((set) => ({
 		set((state) => ({
 			[key]: {
 				...state[key],
-				answer: state[key].answer || answer,
+				answer: answer || state[key].answer,
 				details: details,
 			},
 		})),

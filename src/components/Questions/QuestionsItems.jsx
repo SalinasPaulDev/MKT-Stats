@@ -155,28 +155,25 @@ export const QuestionsItems = () => {
 											</SelectItem>
 										))}
 									</Select>
-									{
-										// teamValues[question.key].answer.length
-										4 > 3 && (
-											<div>
-												<Textarea
-													bordered
-													color='primary'
-													labelPlaceholder='Denos mas detalles'
-													label='Describa detalladamente:'
-													className='mt-8'
-													maxLength={300}
-													onChange={({target}) =>
-														handleUpdateValues({
-															key: question.key,
-															details: target.value,
-														})
-													}
-													value={teamValues[question.key].details}
-												/>
-											</div>
-										)
-									}
+									{teamValues[question.key].answer.length > 3 && (
+										<div>
+											<Textarea
+												bordered
+												color='primary'
+												labelPlaceholder='Denos mas detalles'
+												label='Describa detalladamente:'
+												className='mt-8'
+												maxLength={300}
+												onChange={({target}) =>
+													handleUpdateValues({
+														key: question.key,
+														details: target.value,
+													})
+												}
+												value={teamValues[question.key].details}
+											/>
+										</div>
+									)}
 								</>
 							) : (
 								<div className='inline-flex items-center gap-4 mt-4 ml-4'>
