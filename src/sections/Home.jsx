@@ -72,7 +72,7 @@ export default function Home() {
 				</div>
 				<Button
 					link={'/questions'}
-					text={'¡Comenzemos!'}
+					text={'¡Comencemos!'}
 					icon
 				/>
 			</div>
