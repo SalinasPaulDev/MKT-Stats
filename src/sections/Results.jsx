@@ -10,6 +10,7 @@ import {getApproveQuestions, getPercentageToAnswers} from '../utils'
 import {useNavigate} from 'react-router-dom'
 import {Accordion, AccordionItem} from '@nextui-org/react'
 import {SuggestionCard} from '../components/Card/Cards'
+import {Tab} from '../components/Tab/Tab'
 
 const option = {
 	tooltip: {
@@ -62,6 +63,7 @@ export const Results = () => {
 	const {updateValues: updateIdentityValues, ...identityAnswers} =
 		useIdentityAnswersStore((state) => state)
 	const [isValuesUpdated, setIsValuesUpdated] = useState(false)
+	const [isAISuggest, setIsAISuggest] = useState(true)
 	const navigate = useNavigate()
 
 	let totalAnswers = [documentAnswers, strategyAnswers, identityAnswers]
@@ -147,22 +149,24 @@ export const Results = () => {
 					</div>
 				) : null}
 
-				{getApproveQuestions(totalAnswers, 'approve').length ? (
-					<div className='md:w-2/3'>
-						<h4 className='text-2xl font-semibold px-2'>Desaprobadas</h4>
-						<Accordion className='my-4'>
-							{getApproveQuestions(totalAnswers, 'decline').map((x) => (
-								<AccordionItem
-									key={x.key}
-									aria-label='Accordion 1'
-									title={`❌ ${x.question}`}
-								>
-									<SuggestionCard suggestion={x.suggestion} />
-								</AccordionItem>
-							))}
-						</Accordion>
-					</div>
-				) : null}
+				<Tab>
+					{getApproveQuestions(totalAnswers, 'decline').length ? (
+						<div className='md:w-2/3 m-auto'>
+							<h4 className='text-2xl font-semibold px-2'>Desaprobadas</h4>
+							<Accordion className='my-4'>
+								{getApproveQuestions(totalAnswers, 'decline').map((x) => (
+									<AccordionItem
+										key={x.key}
+										aria-label='Accordion 1'
+										title={`❌ ${x.question}`}
+									>
+										<SuggestionCard suggestion={x.suggestion} />
+									</AccordionItem>
+								))}
+							</Accordion>
+						</div>
+					) : null}
+				</Tab>
 			</div>
 		</div>
 	)

@@ -1,5 +1,6 @@
 import {CircularProgress} from '@nextui-org/react'
 import {Link} from 'react-router-dom'
+import {AnimatedLink} from '../AnimatedLink/AnimatedLink'
 
 export const BentoItem = ({title, className, image, percentege, path}) => {
 	return (
@@ -16,7 +17,9 @@ export const BentoItem = ({title, className, image, percentege, path}) => {
 		>
 			<div className='absolute z-0 bottom-0 top-0 w-full h-full bg-gradient-to-t from-transparent from-40%-transparent via-black/50 to-black/80 rounded-xl  group-hover:scale-105 transition-scale duration-500 ease-in-out'></div>
 			<div
-				style={{backgroundImage: `url(${image})`}}
+				style={{
+					backgroundImage: `url(${image})`,
+				}}
 				className='left-0 top-0 bottom-0 absolute -z-20 bg-cover bg-center bg-no-repeat w-full h-full rounded-xl group-hover:scale-105 transition-scale duration-500 ease-in-out opacity-90 bg-blend-luminosity '
 			/>
 
@@ -31,11 +34,11 @@ export const BentoItem = ({title, className, image, percentege, path}) => {
 					size='lg'
 				/>
 
-				<Link to={`/questions/${path}`}>
+				<AnimatedLink to={`/questions/${path}`}>
 					<button className='bg-blue-500/80 px-4 py-1 rounded-2xl text-white right-0 hover:bg-blue-500/90 hover:text-white transition duration-500'>
 						Continuar
 					</button>
-				</Link>
+				</AnimatedLink>
 			</div>
 			<div className='flex items-center justify-center mt-2 max-md:hidden'>
 				<CircularProgress

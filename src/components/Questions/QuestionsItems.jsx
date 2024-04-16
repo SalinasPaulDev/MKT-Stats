@@ -22,10 +22,18 @@ export const OPTIONS = {
 	EMPTY: '',
 }
 
+const GROUPS = {
+	DOCUMENTATION: 'Documentación',
+	STRATEGY: 'Estrategia',
+	IDENTITY: 'identidad',
+	TEAM: 'Equipo',
+}
+
 export const QuestionsItems = () => {
 	const [currentQuestion, setCurrentQuestion] = useState([])
 	const [textAreaValue, setTextAreaValue] = useState()
 	const location = useLocation()
+	const [currentGroup, setCurrentGroup] = useState(null)
 
 	const {updateValues: updateDocumentationValues, ...storeQuestions} =
 		useDocumentationAnswersStore((state) => state)
@@ -41,12 +49,16 @@ export const QuestionsItems = () => {
 	const showQuestionsByCategory = () => {
 		if (currentLocation === '/questions/documentation') {
 			setCurrentQuestion(documentQuestions)
+			setCurrentGroup(GROUPS.DOCUMENTATION)
 		} else if (currentLocation === '/questions/strategy') {
 			setCurrentQuestion(strategyQuestions)
+			setCurrentGroup(GROUPS.STRATEGY)
 		} else if (currentLocation === '/questions/identity') {
 			setCurrentQuestion(identityQuestions)
+			setCurrentGroup(GROUPS.IDENTITY)
 		} else if (currentLocation === '/questions/team') {
 			setCurrentQuestion(teamWorkQuestions)
+			setCurrentGroup(GROUPS.TEAM)
 		}
 	}
 
@@ -102,7 +114,6 @@ export const QuestionsItems = () => {
 		}
 	}
 
-	console.log(teamValues)
 	return (
 		<div className='lg:w-full '>
 			<div
@@ -119,6 +130,10 @@ export const QuestionsItems = () => {
 					Resuelve las preguntas:{' '}
 				</h3>
 			</div>
+
+			<h4 className='text-2xl font-semibold text-center mb-6'>
+				{currentGroup}
+			</h4>
 
 			<div className='flex flex-col gap-4 justify-center item-center lg:w-fit m-auto p-8 md:p-16'>
 				{currentQuestion.map((question, index) => (

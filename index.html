@@ -11,6 +11,10 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
+		<meta
+			name="view-transition"
+			content="same-origin"
+		/>
 		<link
 			rel="preconnect"
 			href="https://fonts.googleapis.com"
@@ -30,5 +34,25 @@
 			src="/src/main.jsx"
 		></script>
 		<script src="/src/index.css"></script>
+		<!-- <script>
+			window.navigation.addEventListener('navigate', (event) => {
+				const toUrl = new URL(event.destination.url)
+				if (location.origin !== toUrl.origin) return
+
+				event.intercept({
+					async handler() {
+						const response = await fetch(toUrl.pathname)
+						const text = await response.text()
+
+						const data = text.match(/<body>([\s\S]*)<\/body>/i)[1]
+
+						document.startViewTransition(() => {
+							document.body.innerHTML = data
+							document.documentElement.scrollTop = 0
+						})
+					},
+				})
+			})
+		</script> -->
 	</body>
 </html>
