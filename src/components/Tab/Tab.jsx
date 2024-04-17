@@ -62,7 +62,7 @@ export function Tab({children}) {
 								alt=''
 								className='w-32 m-auto my-0'
 							/>
-							{!isLoading ? (
+							{isLoading ? (
 								<p className='text-purple-800 text-center mt-8'>
 									Creando sugerencia...
 								</p>
