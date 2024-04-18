@@ -23,6 +23,7 @@ export default function Home() {
 						poder medir que puntos favorecen a tu empresa y cuales hay que
 						reforzar para superar a la competencia
 					</p>
+					{isSafari && <p>Es safari</p>}
 				</div>
 
 				<div className='animation-row'>
