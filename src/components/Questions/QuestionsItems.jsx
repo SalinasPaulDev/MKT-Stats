@@ -238,6 +238,7 @@ export const QuestionsItems = () => {
 				<Button
 					link={'/questions'}
 					text={'Continuar'}
+					icon
 				/>
 			</div>
 			<ScrollRestoration />

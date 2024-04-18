@@ -2,15 +2,6 @@ import Logo from '/LogoEmpresa.svg'
 import {Button} from '../components/Button/Button'
 
 export default function Home() {
-	var isSafari =
-		/constructor/i.test(window.HTMLElement) ||
-		(function (p) {
-			return p.toString() === '[object SafariRemoteNotification]'
-		})(
-			!window['safari'] ||
-				(typeof safari !== 'undefined' && window['safari'].pushNotification),
-		)
-	console.log('is chrome:', isSafari)
 	return (
 		<>
 			<div className='w-full text-center mb-12'>
@@ -23,7 +14,6 @@ export default function Home() {
 						poder medir que puntos favorecen a tu empresa y cuales hay que
 						reforzar para superar a la competencia
 					</p>
-					{isSafari && <p>Es safari</p>}
 				</div>
 
 				<div className='animation-row'>
