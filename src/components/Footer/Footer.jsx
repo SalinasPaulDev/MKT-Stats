@@ -17,8 +17,8 @@ export const Footer = () => {
 					className='w-[200px] h-[100px] mt-16 max-md:m-auto max-md:mt-16 '
 				/>
 				<div className='flex flex-col justify-center items-center'>
-					<p className='font-semibold text-white'>Contactenos!</p>
-					<Divider className='my-2 color-red-800' />
+					<p className='font-semibold text-white max-md:hidden'>Contactenos!</p>
+					<Divider className='my-2 color-red-800 max-md:hidden' />
 
 					<div className='flex gap-2'>
 						<img

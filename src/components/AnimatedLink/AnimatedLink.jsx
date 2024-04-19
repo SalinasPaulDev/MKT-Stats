@@ -5,18 +5,12 @@ import {useNavigate, Link} from 'react-router-dom'
 export const AnimatedLink = ({to, children}) => {
 	const navigate = useNavigate()
 
-	const isSafari =
-		/constructor/i.test(window.HTMLElement) ||
-		(function (p) {
-			return p.toString() === '[object SafariRemoteNotification]'
-		})(
-			!window['safari'] ||
-				(typeof safari !== 'undefined' && window['safari'].pushNotification),
-		)
+	const isChrome =
+		/Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor)
 
 	return (
 		<>
-			{isSafari ? (
+			{!isChrome ? (
 				<Link to={to}>{children}</Link>
 			) : (
 				<Link
