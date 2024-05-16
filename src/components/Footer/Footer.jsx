@@ -1,7 +1,8 @@
 import React from 'react'
-import Logo from '/LogoEmpresa_white.svg'
+import Logo from '/LogoEmpresa_white.svg?component'
 import {useLocation} from 'react-router-dom'
 import {Divider} from '@nextui-org/react'
+import InstagramIcon from '../../img/InstagramIcon'
 export const Footer = () => {
 	const location = useLocation()
 
@@ -21,11 +22,7 @@ export const Footer = () => {
 					<Divider className='my-2 color-red-800 max-md:hidden' />
 
 					<div className='flex gap-2'>
-						<img
-							src={'instagram.svg'}
-							alt='QR Code'
-							className='w-[30px] h-[30px] max-md:hidden hover:cursor-pointer'
-						/>
+						<InstagramIcon />
 						<img
 							src={'linkedin.svg'}
 							alt='QR Code'
