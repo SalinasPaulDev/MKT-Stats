@@ -11,6 +11,8 @@ import {
 	useTeamWorkAnswersStore,
 } from '../store/answers'
 import {getPercentage} from '../utils'
+import {useHandleData} from '../store/handleData'
+import {setAnswers} from '../api/suggestion'
 
 export const Questions = () => {
 	const {open, setOpen} = useHandleModal((state) => state)
@@ -22,6 +24,7 @@ export const Questions = () => {
 		useIdentityAnswersStore((state) => state)
 	const {updateValues: updateTeamValues, ...teamValues} =
 		useTeamWorkAnswersStore((state) => state)
+	const {email, setData} = useHandleData((state) => state)
 
 	const isResultsActive =
 		getPercentage(documentaryAnswers) === 100 &&
@@ -30,6 +33,16 @@ export const Questions = () => {
 		getPercentage(teamValues, true) >= 75
 			? true
 			: false
+
+	const fetchData = async () => {
+		const data = [documentaryAnswers, strategyAnswers]
+
+		try {
+			await setAnswers({data, email})
+		} catch (error) {
+			console.log('error')
+		}
+	}
 	return (
 		<div>
 			<h2 className='text-2xl font-semibold mt-10 text-center'>
@@ -40,7 +53,7 @@ export const Questions = () => {
 			</p>
 
 			<div
-				onClick={() => (!isResultsActive ? setOpen(true) : {})}
+				onClick={() => (!isResultsActive ? setOpen(true) : fetchData())}
 				className='m-auto flex justify-center max-w-[1400px] mx-auto px-8 md:px-20 md:justify-end'
 			>
 				<Button

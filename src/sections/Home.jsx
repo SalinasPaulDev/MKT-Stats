@@ -1,7 +1,15 @@
 import Logo from '/LogoEmpresa.svg'
 import {Button} from '../components/Button/Button'
+import {Input} from '@nextui-org/react'
+import {InfoIcon} from '../img/IconInfo'
+import {useHandleData} from '../store/handleData'
 
 export default function Home() {
+	const {email, setData} = useHandleData((state) => state)
+
+	const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
+	const disabled = emailRegex.test(email)
 	return (
 		<>
 			<div className='w-full text-center mb-12'>
@@ -24,12 +32,6 @@ export default function Home() {
 						className='m-auto'
 					/>
 				</div>
-
-				<img
-					src={Logo}
-					alt='id creativa logo'
-					className='w-[200px] h-[100px] m-auto my-12 opacity-20'
-				/>
 
 				<div className='flex flex-col items-center justify-center gap-8 my-20 md:flex-row md:px-20'>
 					<div className='w-3/4'>
@@ -71,10 +73,29 @@ export default function Home() {
 						</p>
 					</div>
 				</div>
+				<div className='flex gap-2 justify-center items-center w-1/5 m-auto  mb-16'>
+					<Input
+						type='email'
+						variant={'underlined'}
+						placeholder='example@gmail.com'
+						className=' m-auto'
+						color='primary'
+						onChange={(e) => setData({email: e.target.value})}
+					/>
+					{/* <div className='cursor-pointer'>
+						<InfoIcon />
+					</div> */}
+				</div>
 				<Button
 					link={'/questions'}
 					text={'¡Comencemos!'}
 					icon
+					disabled={!disabled}
+				/>
+				<img
+					src={Logo}
+					alt='id creativa logo'
+					className='w-[200px] h-[100px] m-auto my-12 opacity-20'
 				/>
 			</div>
 		</>

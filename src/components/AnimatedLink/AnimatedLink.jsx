@@ -2,7 +2,7 @@ import * as React from 'react'
 import {flushSync} from 'react-dom'
 import {useNavigate, Link} from 'react-router-dom'
 
-export const AnimatedLink = ({to, children}) => {
+export const AnimatedLink = ({to, children, disabled}) => {
 	const navigate = useNavigate()
 
 	const isChrome =
@@ -17,6 +17,7 @@ export const AnimatedLink = ({to, children}) => {
 					to={to}
 					onClick={(event) => {
 						event.preventDefault()
+						if (disabled) return
 						document.startViewTransition(() => {
 							flushSync(() => {
 								navigate(to)

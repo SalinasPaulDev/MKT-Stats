@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react'
-import {Tabs, Tab as NxtTab, Card, CardBody} from '@nextui-org/react'
+import {Tabs, Tab as NxtTab, Card, CardBody, Button} from '@nextui-org/react'
 import {setAnswers} from '../../api/suggestion'
 import {useTypewriter} from '../../hook/typeWritter'
-import {Button} from '@nextui-org/react'
+
 import Icon from '/stars.svg'
+import {useHandleData} from '../../store/handleData'
 
 const Typewriter = ({text}) => {
 	const displayText = useTypewriter(text)
@@ -15,11 +16,11 @@ export function Tab({children}) {
 	const [isAITab, setIsAITab] = useState(false)
 	const [text, setText] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
+	const {data, setData} = useHandleData()
 
 	const fetchData = async () => {
 		try {
-			const data = await setAnswers()
-			return data.message
+			const data = await setAnswers({data})
 		} catch (error) {
 			console.log('error')
 		}
@@ -27,7 +28,7 @@ export function Tab({children}) {
 
 	const handleAIClick = async () => {
 		setIsLoading(true)
-		const data = await fetchData()
+		await fetchData()
 		if (data) {
 			setText(data)
 			setIsLoading(false)
