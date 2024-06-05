@@ -10,7 +10,7 @@
 
 	color-scheme: light;
 	color: #191619;
-	background-color: #2078c420;
+	background-color: rgb(219 234 254);
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -34,6 +34,7 @@ body {
 	min-width: 320px;
 	min-height: 100vh;
 	width: 100%;
+	background-color: rgb(219 234 254);
 }
 
 h1 {
