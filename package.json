@@ -13,6 +13,7 @@
     "@nextui-org/react": "^2.2.9",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
+    "animate.css": "^4.1.1",
     "axios": "^1.6.8",
     "downloadjs": "^1.4.7",
     "echarts": "^5.4.3",

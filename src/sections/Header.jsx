@@ -9,23 +9,30 @@ export const Header = () => {
 		<div
 			className={`relative ${location.pathname !== '/' ? 'pb-[400px]' : ''}`}
 		>
-			<Link to={'/'}>
-				<div
-					className='w-full  flex items-center justify-center bg-center bg-no-repeat bg-cover py-8'
-					style={{backgroundImage: 'url("/header_wave.svg")'}}
-				>
-					<div>
-						<img
-							src={Logo}
-							className='w-10 h-10'
-							alt=''
-						/>
+			<div className='flex items-center justify-between px-6 py-4'>
+				<Link to={'/'}>
+					<div className='w-full flex items-center bg-center bg-no-repeat bg-cover'>
+						<div>
+							<img
+								src={Logo}
+								className='w-10 h-10'
+								alt=''
+							/>
+						</div>
+						<p className='pl-2 font-semibold text-xl text-slate-950'>
+							Brand Therapy
+						</p>
 					</div>
-					<p className='p-4 font-semibold text-xl text-slate-950 text-white'>
-						Brand Therapy
-					</p>
+				</Link>
+				<div className='flex gap-4'>
+					<Link>
+						<p className='text-neutral-500 hover:text-black'>¿Quienes somos?</p>
+					</Link>
+					<Link>
+						<p className='text-neutral-500 hover:text-black'>¿Quienes somos?</p>
+					</Link>
 				</div>
-			</Link>
+			</div>
 			<div>
 				<Outlet />
 			</div>

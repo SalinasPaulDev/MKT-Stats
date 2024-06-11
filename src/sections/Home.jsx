@@ -3,6 +3,7 @@ import {Button} from '../components/Button/Button'
 import {Input} from '@nextui-org/react'
 import {InfoIcon} from '../img/IconInfo'
 import {useHandleData} from '../store/handleData'
+import 'animate.css'
 
 export default function Home() {
 	const {email, setData} = useHandleData((state) => state)
@@ -12,19 +13,29 @@ export default function Home() {
 	const disabled = emailRegex.test(email)
 	return (
 		<>
-			<div className='w-full text-center mb-12'>
-				<h1 className='font-semibold mt-16 text-xl text-center md:text-4xl lg:text-[4rem]'>
-					¡Bienvenido a Brand Therapy!
+			<div className='w-4/5 m-auto text-center mb-12'>
+				<h1 className='flex flex-col  w-3/4 m-auto font-semibold mt-16 text-xl  md:text-6xl'>
+					<span className='animate__animated animate__fadeInUp first'>
+						El mejor lugar
+					</span>
+					<span className='animate__animated animate__fadeInUp second'>
+						para mejorar tu empresa.
+					</span>
 				</h1>
-				<div className='w-3/4 p-4  m-auto mt-4 md:mt-6 lg:w-2/4'>
-					<p className='text-zinc-500 text-center text-sm md:text-xl  '>
-						Comprueba que tan poderosa es tu empresa o pyme. En esta app vas a
-						poder medir que puntos favorecen a tu empresa y cuales hay que
-						reforzar para superar a la competencia
+				<div className='w-3/4 p-4  m-auto mt-4 md:mt-2 lg:w-2/4'>
+					<p className='text-center text-2xl font-medium md:text-xl  '>
+						Comprueba que tan poderosa es tu empresa/pyme usando AI
 					</p>
 				</div>
+				<div className='flex gap-4 m-auto w-fit'>
+					<Button text={'Comenzar gratis'} />
+					<Button
+						text={'Solicitar demo ->'}
+						underline={true}
+					/>
+				</div>
 
-				<div className='animation-row'>
+				<div className='animation-row mt-14'>
 					<img
 						src='/down-arrow.svg'
 						alt='down arrow'
@@ -90,7 +101,7 @@ export default function Home() {
 					link={'/questions'}
 					text={'¡Comencemos!'}
 					icon
-					disabled={!disabled}
+					disabled={true}
 				/>
 				<img
 					src={Logo}
