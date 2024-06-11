@@ -8,7 +8,7 @@ export const Button = ({link, text, icon, disabled, underline}) => {
 			disabled={disabled}
 		>
 			<button
-				className={`${underline ? 'text-blue-500 bg-transparent border-[0.5px] border-blue-500/60   hover:text-white' : 'bg-blue-500 text-white'} ${disabled ? 'bg-black/10' : 'bg-blue-500 hover:bg-blue-600'} mt-8 md:mt-2  py-2 px-4 rounded-2xl font-semibold  m-auto text-lg  transition duration-500 flex items-center justify-between gap-2`}
+				className={`${underline ? 'text-blue-500 bg-transparent border-[0.5px] border-blue-500/60   hover:text-white' : 'bg-blue-500 text-white'} ${disabled ? 'bg-black/10' : 'bg-blue-500 hover:bg-blue-600'} mt-8 md:mt-2  py-2 px-4 rounded-2xl font-semibold  m-auto text-lg  transition duration-500 flex items-center justify-between gap-4`}
 			>
 				{text}
 				{icon && (
